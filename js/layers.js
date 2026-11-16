@@ -74,6 +74,17 @@
     if (motionOk.matches && tallEnough.matches) { start(); } else { stop(); }
   }
 
+  /* A layer that is fully clipped never starts its lazy download, so the render would
+     pop in after its wipe had begun. Fetch the renders once the section is a screen away. */
+  var fetcher = new IntersectionObserver(function (entries) {
+    if (!entries.some(function (entry) { return entry.isIntersecting; })) { return; }
+    fetcher.disconnect();
+    Array.prototype.forEach.call(section.querySelectorAll('.plate img[loading="lazy"]'), function (img) {
+      img.loading = "eager";
+    });
+  }, { rootMargin: "100% 0px 100% 0px" });
+  fetcher.observe(section);
+
   motionOk.addEventListener("change", sync);
   tallEnough.addEventListener("change", sync);
   wide.addEventListener("change", function () { if (root.classList.contains("layers-pin")) { watch(); } });

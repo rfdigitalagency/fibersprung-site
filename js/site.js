@@ -97,7 +97,7 @@
 
   /* Live chat. The widget loads on the first scroll, tap or key press, never during page load. */
   if (TAWK_ID) {
-    /* The chat row on the Contact page stays hidden until chat is connected. */
+    /* The "Start a live chat" rows stay hidden until chat is connected. */
     document.querySelectorAll("[data-chat-row]").forEach(function (el) { el.hidden = false; });
     var loaded = false;
     var load = function () {

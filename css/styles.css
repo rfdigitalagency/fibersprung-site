@@ -890,8 +890,11 @@ strong { font-weight: 600; }
 .payoff__text .ledger { margin-top: var(--s-6); }
 .payoff__text .ledger + p { margin-top: var(--s-5); }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .payoff__text .ledger__row { display: block; }
-  .payoff__text .ledger__row dt { margin-top: var(--s-2); }
+  /* Half-width column: number first, its label under it, as on phones. */
+  .payoff__text .ledger__row { grid-template-columns: 1fr; }
+  .payoff__text .ledger dd { min-width: 0; }
+  .payoff__text .ledger__num { min-width: 0; text-align: left; }
+  .payoff__text .ledger__row dt { padding-top: var(--s-2); }
 }
 
 /* ---------- About ---------- */
@@ -1003,6 +1006,7 @@ strong { font-weight: 600; }
 /* ---------- 404 ---------- */
 .lost { padding-block: var(--s-9); }
 .lost .display { margin-bottom: var(--s-5); font-size: var(--fs-page); }
+.lost .btn-row { margin-top: var(--s-6); }
 .lost ul { margin-top: var(--s-6); border-block: var(--rule) solid var(--fg); max-width: 28rem; }
 .lost li + li { border-top: 1px solid var(--hair); }
 .lost li a { display: flex; align-items: center; min-height: 52px; font-size: var(--fs-data); font-weight: 500; text-decoration: none; }

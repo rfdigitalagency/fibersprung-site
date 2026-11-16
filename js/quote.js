@@ -65,7 +65,8 @@
       var value = field.value.trim();
       if (value) { lines.push(field.getAttribute("data-label").replace(/\?$/, "") + ": " + value); }
     });
-    return lines.join("\n");
+    /* Mail apps expect each line of a mailto body to end with a return and a line feed. */
+    return lines.join("\r\n");
   }
 
   function done(title, text) {
