@@ -38,8 +38,8 @@
   "email": "info@fibersprung.com",
   "description": "Maker of patented fiberglass sprung floors for dance and stage.",
   "contactPoint": [
-    { "@type": "ContactPoint", "contactType": "sales", "name": "Spencer", "telephone": "+1-909-553-0729" },
-    { "@type": "ContactPoint", "contactType": "sales", "name": "Micah", "telephone": "+1-401-855-5520" }
+    { "@type": "ContactPoint", "contactType": "sales", "name": "Spencer Hering", "telephone": "+1-909-553-0729" },
+    { "@type": "ContactPoint", "contactType": "sales", "name": "Micah Reyes", "telephone": "+1-401-855-5520" }
   ]
 }
 </script>
@@ -65,8 +65,8 @@
         <li class="site-nav__cta"><a class="btn btn--primary" href="contact.html#quote">Get a quote</a></li>
       </ul>
       <ul class="site-nav__contact">
-        <li>Spencer <a href="tel:+19095530729">909-553-0729</a></li>
-        <li>Micah <a href="tel:+14018555520">401-855-5520</a></li>
+        <li>Spencer Hering <a href="tel:+19095530729">909-553-0729</a></li>
+        <li>Micah Reyes <a href="tel:+14018555520">401-855-5520</a></li>
         <li><a href="mailto:info@fibersprung.com">info@fibersprung.com</a></li>
       </ul>
     </nav>
@@ -87,15 +87,14 @@
       </p>
     </div>
   </div>
-  <!-- OPEN: which floor the grid render shows -->
   <!-- Media slot. A video with this image as its poster can replace the picture without touching the layout. -->
   <div class="hero__media">
     <picture>
-      <source media="(min-width: 768px)" type="image/avif" width="1440" height="1152" sizes="1000px" srcset="img/home/hero-grid-960.avif 960w, img/home/hero-grid-1440.avif 1440w, img/home/hero-grid-1920.avif 1920w">
-      <source media="(min-width: 768px)" type="image/webp" width="1440" height="1152" sizes="1000px" srcset="img/home/hero-grid-960.webp 960w, img/home/hero-grid-1440.webp 1440w, img/home/hero-grid-1920.webp 1920w">
-      <source type="image/avif" width="780" height="585" sizes="100vw" srcset="img/home/hero-grid-phone-420.avif 420w, img/home/hero-grid-phone-780.avif 780w, img/home/hero-grid-phone-1170.avif 1170w">
-      <source type="image/webp" width="780" height="585" sizes="100vw" srcset="img/home/hero-grid-phone-420.webp 420w, img/home/hero-grid-phone-780.webp 780w, img/home/hero-grid-phone-1170.webp 1170w">
-      <img src="img/home/hero-grid-phone-780.webp" alt="The FiberSprung fiberglass grid: square tubes in a basket weave, joined by black fittings." width="780" height="585" fetchpriority="high" decoding="async">
+      <source media="(min-width: 768px)" type="image/avif" width="1440" height="1152" sizes="1000px" srcset="img/home/hero-studio-960.avif 960w, img/home/hero-studio-1440.avif 1440w, img/home/hero-studio-1920.avif 1920w">
+      <source media="(min-width: 768px)" type="image/webp" width="1440" height="1152" sizes="1000px" srcset="img/home/hero-studio-960.webp 960w, img/home/hero-studio-1440.webp 1440w, img/home/hero-studio-1920.webp 1920w">
+      <source type="image/avif" width="780" height="585" sizes="100vw" srcset="img/home/hero-studio-phone-420.avif 420w, img/home/hero-studio-phone-780.avif 780w, img/home/hero-studio-phone-1170.avif 1170w">
+      <source type="image/webp" width="780" height="585" sizes="100vw" srcset="img/home/hero-studio-phone-420.webp 420w, img/home/hero-studio-phone-780.webp 780w, img/home/hero-studio-phone-1170.webp 1170w">
+      <img src="img/home/hero-studio-phone-780.webp" alt="A FiberSprung grid laid across a dance studio, with barres and a mirrored wall behind it." width="780" height="585" fetchpriority="high" decoding="async">
     </picture>
   </div>
 </section>
@@ -104,45 +103,35 @@
 <section class="section who on-canvas" aria-labelledby="who-h">
   <div class="wrap grid">
     <h2 class="rule-head" id="who-h">Who uses it</h2>
-    <div class="who__list">
-      <div class="who__row">
-        <h3 class="who__floor"><a href="products.html#pro">Pro<span class="sr-only"> floor</span></a></h3>
-        <div class="who__names"><ul class="names">
-          <li>Pace University</li>
-          <li>Bayou City Ballet</li>
-          <li>Kanyok Arts Initiative</li>
-          <li>Seattle Movement Arts Center</li>
-        </ul></div>
-      </div>
-      <div class="who__row">
-        <h3 class="who__floor"><a href="products.html#light">Light<span class="sr-only"> floor</span></a></h3>
-        <div class="who__names"><ul class="names">
-          <li>Purchase College (SUNY)</li>
-          <li>Newport Contemporary Ballet</li>
-          <li>Bronx Music Hall</li>
-          <li>Hunter Dance Center</li>
-          <li>Newnan Theatre Company</li>
-          <!-- OPEN: Le Moyne naming -->
-          <li>Le Moyne College</li>
-        </ul></div>
-      </div>
-      <div class="who__row">
-        <h3 class="who__floor"><a href="products.html#go">Go<span class="sr-only"> floor</span></a></h3>
-        <div class="who__names"><ul class="names">
-          <li>NBCUniversal</li>
-          <li>Traverse City Dance Project</li>
-        </ul></div>
-      </div>
-    </div>
+    <ul class="logos">
+      <li><img src="img/clients/pace-university.webp" alt="Pace University" width="88" height="38" style="--w:88" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/nbcuniversal.webp" alt="NBCUniversal" width="156" height="15" style="--w:156" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/seattle-movement-arts-center.webp" alt="Seattle Movement Arts Center" width="46" height="69" style="--w:46" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/hunter-dance-center.webp" alt="Hunter Dance Center" width="80" height="56" style="--w:80" loading="lazy" decoding="async"></li>
+      <!-- OPEN: Le Moyne naming -->
+      <li><img src="img/clients/le-moyne-college.webp" alt="Le Moyne College" width="134" height="24" style="--w:134" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/bayou-city-ballet.webp" alt="Bayou City Ballet" width="98" height="42" style="--w:98" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/purchase-college-suny.webp" alt="Purchase College (SUNY)" width="122" height="41" style="--w:122" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/newnan-theatre-company.webp" alt="Newnan Theatre Company" width="158" height="34" style="--w:158" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/newport-contemporary-ballet.webp" alt="Newport Contemporary Ballet" width="66" height="59" style="--w:66" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/bronx-music-hall.webp" alt="Bronx Music Hall" width="68" height="47" style="--w:68" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/kanyok-arts-initiative.webp" alt="Kanyok Arts Initiative" width="110" height="28" style="--w:110" loading="lazy" decoding="async"></li>
+      <li><img src="img/clients/traverse-city-dance-project.webp" alt="Traverse City Dance Project" width="86" height="40" style="--w:86" loading="lazy" decoding="async"></li>
+    </ul>
   </div>
 </section>
 
 <!-- 03 Thesis and numbers -->
-<section class="section section--clip thesis on-white" aria-labelledby="thesis-h">
+<section class="section thesis on-white" aria-labelledby="thesis-h">
   <div class="wrap grid">
     <div class="thesis__text">
       <h2 class="rule-head" id="thesis-h">The future of<br>sprung flooring.</h2>
       <p>A sprung floor gets its spring from what is underneath. We build that part from pultruded fiberglass instead of wood or foam, so it bends the same way every time, resists water, and can be repaired, moved or resold.</p>
+      <picture class="thesis__photo">
+        <source type="image/avif" sizes="(min-width: 1248px) 480px, (min-width: 1024px) 42vw, (min-width: 768px) calc(100vw - 80px), calc(100vw - 48px)" srcset="img/home/grid-hardwood-480.avif 480w, img/home/grid-hardwood-720.avif 720w, img/home/grid-hardwood-960.avif 960w">
+        <source type="image/webp" sizes="(min-width: 1248px) 480px, (min-width: 1024px) 42vw, (min-width: 768px) calc(100vw - 80px), calc(100vw - 48px)" srcset="img/home/grid-hardwood-480.webp 480w, img/home/grid-hardwood-720.webp 720w, img/home/grid-hardwood-960.webp 960w">
+        <img src="img/home/grid-hardwood-720.webp" alt="A FiberSprung grid laid over a hardwood floor, seen at close range." width="720" height="480" loading="lazy" decoding="async">
+      </picture>
     </div>
     <dl class="ledger">
       <div class="ledger__row">
@@ -166,23 +155,6 @@
         <dd><span class="ledger__num">3</span> <span class="ledger__unit">mm</span></dd>
       </div>
     </dl>
-    <div class="gridmark gridmark--pro" aria-hidden="true">
-      <svg viewBox="0 0 400 250" preserveAspectRatio="none">
-        <g class="gridmark__grid">
-          <line x1="-2200" y1="50" x2="400" y2="50"/>
-          <line x1="200" y1="10" x2="200" y2="250"/><line x1="0" y1="10" x2="0" y2="250"/>
-          <line x1="-200" y1="10" x2="-200" y2="250"/><line x1="-400" y1="10" x2="-400" y2="250"/>
-          <line x1="-600" y1="10" x2="-600" y2="250"/><line x1="-800" y1="10" x2="-800" y2="250"/>
-        </g>
-        <g class="gridmark__node">
-          <rect x="193" y="43" width="14" height="14" rx="3"/><rect x="-7" y="43" width="14" height="14" rx="3"/>
-          <rect x="-207" y="43" width="14" height="14" rx="3"/><rect x="-407" y="43" width="14" height="14" rx="3"/>
-          <rect x="-607" y="43" width="14" height="14" rx="3"/><rect x="-807" y="43" width="14" height="14" rx="3"/>
-        </g>
-        <g class="gridmark__dim"><line x1="0" y1="150" x2="200" y2="150"/><line x1="0" y1="138" x2="0" y2="162"/><line x1="200" y1="138" x2="200" y2="162"/></g>
-      </svg>
-      <span class="gridmark__label">16 in.</span>
-    </div>
   </div>
 </section>
 
@@ -254,6 +226,7 @@
         <div class="plate-track">
           <div class="plate plate--fade">
             <div class="plate__art">
+              <!-- OPEN: which floor the grid render shows -->
               <picture>
                 <source type="image/avif" sizes="(min-width: 1248px) 768px, (min-width: 900px) 62vw, 100vw" srcset="img/layers/render-layer-1-grid-800.avif 800w, img/layers/render-layer-1-grid-1600.avif 1600w, img/layers/render-layer-1-grid-2400.avif 2400w">
                 <source type="image/webp" sizes="(min-width: 1248px) 768px, (min-width: 900px) 62vw, 100vw" srcset="img/layers/render-layer-1-grid-800.webp 800w, img/layers/render-layer-1-grid-1600.webp 1600w, img/layers/render-layer-1-grid-2400.webp 2400w">
@@ -408,11 +381,11 @@
 <section class="section tech on-dark" aria-labelledby="tech-h">
   <div class="tech__photo">
     <picture>
-      <source media="(min-width: 768px)" type="image/avif" width="1440" height="600" sizes="100vw" srcset="img/home/grid-studio-960.avif 960w, img/home/grid-studio-1440.avif 1440w, img/home/grid-studio-1920.avif 1920w">
-      <source media="(min-width: 768px)" type="image/webp" width="1440" height="600" sizes="100vw" srcset="img/home/grid-studio-960.webp 960w, img/home/grid-studio-1440.webp 1440w, img/home/grid-studio-1920.webp 1920w">
-      <source type="image/avif" width="780" height="488" sizes="100vw" srcset="img/home/grid-studio-phone-480.avif 480w, img/home/grid-studio-phone-780.avif 780w, img/home/grid-studio-phone-1170.avif 1170w">
-      <source type="image/webp" width="780" height="488" sizes="100vw" srcset="img/home/grid-studio-phone-480.webp 480w, img/home/grid-studio-phone-780.webp 780w, img/home/grid-studio-phone-1170.webp 1170w">
-      <img src="img/home/grid-studio-phone-780.webp" alt="A FiberSprung grid laid across a dance studio, with barres and a mirrored wall behind it." width="780" height="488" loading="lazy" decoding="async">
+      <source media="(min-width: 768px)" type="image/avif" width="1440" height="600" sizes="100vw" srcset="img/home/grid-detail-960.avif 960w, img/home/grid-detail-1440.avif 1440w, img/home/grid-detail-1920.avif 1920w">
+      <source media="(min-width: 768px)" type="image/webp" width="1440" height="600" sizes="100vw" srcset="img/home/grid-detail-960.webp 960w, img/home/grid-detail-1440.webp 1440w, img/home/grid-detail-1920.webp 1920w">
+      <source type="image/avif" width="780" height="488" sizes="100vw" srcset="img/home/grid-detail-phone-480.avif 480w, img/home/grid-detail-phone-780.avif 780w, img/home/grid-detail-phone-1170.avif 1170w">
+      <source type="image/webp" width="780" height="488" sizes="100vw" srcset="img/home/grid-detail-phone-480.webp 480w, img/home/grid-detail-phone-780.webp 780w, img/home/grid-detail-phone-1170.webp 1170w">
+      <img src="img/home/grid-detail-phone-780.webp" alt="A FiberSprung grid seen at close range: black fiberglass tubes crossing over a concrete floor, joined by fittings." width="780" height="488" loading="lazy" decoding="async">
     </picture>
   </div>
   <div class="wrap grid tech__in">
@@ -625,8 +598,8 @@
       <p class="contact__fin"><a href="https://fullcirclellc.us/fibersprung" rel="noopener">Financing is available through Full Circle Finance</a></p>
     </div>
     <dl class="readout contact__ways">
-      <div><dt>Call Spencer</dt><dd><a href="tel:+19095530729">909-553-0729</a></dd></div>
-      <div><dt>Call Micah</dt><dd><a href="tel:+14018555520">401-855-5520</a></dd></div>
+      <div><dt>Spencer Hering</dt><dd><a href="tel:+19095530729">909-553-0729</a></dd></div>
+      <div><dt>Micah Reyes</dt><dd><a href="tel:+14018555520">401-855-5520</a></dd></div>
       <div><dt>Chat</dt><dd><a class="btn btn--ghost" href="contact.html#chat" data-chat>Start a live chat</a></dd></div>
       <div><dt>Email</dt><dd><a href="mailto:info@fibersprung.com">info@fibersprung.com</a></dd></div>
     </dl>
@@ -647,6 +620,22 @@
     </div>
   </div>
 </section>
+
+<!-- Shown until live chat is connected. js/site.js removes it once the chat ID is set. -->
+<div class="talk" data-talk>
+  <button class="talk__btn" type="button" aria-expanded="false" aria-controls="talk-panel">Talk to us</button>
+  <div class="talk__panel on-dark" id="talk-panel" role="dialog" aria-labelledby="talk-h" tabindex="-1" hidden>
+    <div class="talk__head">
+      <p class="talk__title" id="talk-h">Talk to us</p>
+      <button class="talk__close" type="button">Close</button>
+    </div>
+    <dl class="readout">
+      <div><dt>Spencer Hering</dt><dd><a href="tel:+19095530729">909-553-0729</a></dd></div>
+      <div><dt>Micah Reyes</dt><dd><a href="tel:+14018555520">401-855-5520</a></dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:info@fibersprung.com">info@fibersprung.com</a></dd></div>
+    </dl>
+  </div>
+</div>
 
 </main>
 
@@ -669,8 +658,8 @@
         <h2 class="site-footer__label">Talk to us</h2>
         <ul>
           <li><a href="contact.html#quote">Get a quote</a></li>
-          <li>Spencer <a href="tel:+19095530729">909-553-0729</a></li>
-          <li>Micah <a href="tel:+14018555520">401-855-5520</a></li>
+          <li>Spencer Hering <a href="tel:+19095530729">909-553-0729</a></li>
+          <li>Micah Reyes <a href="tel:+14018555520">401-855-5520</a></li>
           <li><a href="mailto:info@fibersprung.com">info@fibersprung.com</a></li>
         </ul>
       </div>

@@ -57,6 +57,7 @@
   --line-annot: 1.5px;
   --radius: 6px;
   --header-h: 56px;
+  --header-offset: var(--header-h);
 }
 @media (min-width: 768px) { :root { --margin: 40px; --cols: 12; } }
 @media (min-width: 1024px) { :root { --margin: 48px; --rule: 4px; --header-h: 64px; } }
@@ -183,6 +184,14 @@ strong { font-weight: 600; }
   html:not(.js) .site-header__in { flex-wrap: wrap; padding-top: var(--s-4); }
   html:not(.js) .site-nav { flex: 1 1 100%; padding-bottom: var(--s-6); }
 }
+@media (max-width: 1023px) {
+  /* With script, the bar sticks, slides away on the way down the page and returns on the
+     way up (site.js sets .header-hidden). --header-offset is the room it is taking. */
+  .js .site-header { position: sticky; top: 0; transition: transform 0.2s ease-out; }
+  .js.header-hidden { --header-offset: 0px; }
+  .js.header-hidden .site-header { transform: translateY(-100%); }
+  .js .site-nav.is-open { max-height: calc(100dvh - var(--header-h)); overflow-y: auto; overscroll-behavior: contain; }
+}
 @media (max-width: 379px) { .site-header__logo img { height: 24px; } }
 @media (min-width: 1024px) {
   .site-header { position: sticky; top: 0; }
@@ -217,7 +226,24 @@ strong { font-weight: 600; }
 }
 
 /* ---------- 02 Who uses it ---------- */
-.who .rule-head { grid-column: 1 / -1; margin-bottom: var(--s-6); }
+/* Home: a wall of client logos. Each column is as wide as its widest logo, so wide marks
+   get wide columns. --w is a logo's full width in px, set for even visual weight; it
+   scales down with the layout unit on smaller screens. About uses the type list below. */
+.who { padding-block: calc(var(--s-6) + var(--s-2)); }
+.who .rule-head { grid-column: 1 / -1; margin-bottom: var(--s-5); }
+.logos { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; justify-items: center; align-items: center; gap: 20px var(--s-3); max-width: 30rem; }
+.logos li { display: grid; place-items: center; }
+.logos img { width: min(calc(var(--w) * 1px), calc(var(--w) * var(--u) / 70)); height: auto; }
+@media (min-width: 768px) {
+  .who { padding-block: var(--s-7); }
+  .who .rule-head { margin-bottom: var(--s-6); }
+  .logos { grid-template-columns: repeat(6, auto); max-width: none; row-gap: var(--s-5); }
+  .logos img { width: min(calc(var(--w) * 1px), calc(var(--w) * var(--u) / 64)); }
+}
+@media (min-width: 1024px) {
+  .logos { grid-column: 5 / -1; row-gap: var(--s-6); }
+  .logos img { width: calc(var(--w) * var(--u) / 96); }
+}
 .who__list { grid-column: 1 / -1; border-block: var(--rule) solid var(--fg); }
 .who__row { padding-block: var(--s-4); border-top: 1px solid var(--hair); }
 .who__row:first-child { border-top: 0; }
@@ -243,6 +269,8 @@ strong { font-weight: 600; }
 /* ---------- 03 Thesis and the numbers ledger ---------- */
 .thesis__text { grid-column: 1 / -1; margin-bottom: var(--s-7); }
 .thesis__text .rule-head { margin-bottom: var(--s-5); }
+.thesis__photo { margin-top: var(--s-6); }
+.thesis__photo img { width: 100%; }
 .ledger { grid-column: 1 / -1; border-block: var(--rule) solid var(--fg); }
 .ledger__row { display: grid; grid-template-columns: 1fr; padding-block: var(--s-4); border-top: 1px solid var(--hair); }
 .ledger__row:first-child { border-top: 0; }
@@ -251,12 +279,13 @@ strong { font-weight: 600; }
 .ledger__unit { font-size: var(--fs-data); font-weight: 500; }
 .ledger dt { max-width: 26em; padding-top: var(--s-2); line-height: 1.4; }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .thesis { padding-bottom: calc(var(--section-y) + var(--u) * 2); }
-  .thesis .gridmark { bottom: calc(-1 * (var(--section-y) + var(--u) * 2)); }
-  .ledger { grid-column: 4 / -1; }
+  .thesis__photo img { aspect-ratio: 5 / 2; object-fit: cover; }
 }
 @media (min-width: 1024px) {
-  .thesis__text { grid-column: 1 / span 5; margin-bottom: 0; }
+  /* The left column is as tall as the ledger; the photo fills what the text leaves. */
+  .thesis__text { grid-column: 1 / span 5; margin-bottom: 0; display: flex; flex-direction: column; }
+  .thesis__photo { position: relative; flex: 1 1 auto; min-height: 12rem; }
+  .thesis__photo img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
   .ledger { grid-column: 7 / -1; align-self: start; }
 }
 @media (min-width: 768px) {
@@ -276,8 +305,6 @@ strong { font-weight: 600; }
   .gridmark__node { fill: var(--bg); stroke: var(--hair); stroke-width: 1; }
   .gridmark__dim { stroke: var(--orange); stroke-width: 1.5; fill: none; }
   .gridmark__label { position: absolute; transform: translate(-50%, -50%); padding: 0 6px; background: var(--bg); color: var(--annot-text); font: 500 var(--fs-small) / 1 var(--font-body); white-space: nowrap; }
-  .gridmark--pro { left: 0; width: calc(var(--u) * 4); height: calc(var(--u) * 2.5); }
-  .gridmark--pro .gridmark__label { left: calc(var(--u) * 1); top: calc(var(--u) * 1.5); }
   .gridmark--light { right: 0; width: calc(var(--u) * 6); height: calc(var(--u) * 2); }
   .gridmark--light .gridmark__label { left: calc(var(--u) * 4.5); top: calc(var(--u) * 1.25); }
 }
@@ -361,7 +388,9 @@ strong { font-weight: 600; }
 .layers__end { padding-top: var(--s-6); border-top: var(--rule) solid var(--fg); }
 
 /* Pinned version. layers.js adds .layers-pin to <html> only when motion is allowed. */
-.layers-pin .layers { --stage-top: var(--s-5); --stage-h: min(83.7vw, 44svh); }
+/* --header-offset is the header's height while it shows and 0 while it is hidden, so the
+   stage always starts below the header and the callouts are never covered. */
+.layers-pin .layers { --stage-top: var(--header-offset); --stage-h: min(83.7vw, 44svh); }
 .layers-pin .steps { position: relative; padding-top: calc(var(--stage-h) + var(--s-5)); }
 .layers-pin .step { display: block; padding-block: 0; border-top: 0; }
 .layers-pin .step__body, .layers-pin .beat__text { min-height: 60svh; padding-top: var(--s-5); }
@@ -373,12 +402,12 @@ strong { font-weight: 600; }
 .layers-pin .surface-switch a[aria-current="true"] { background: var(--black); color: var(--white); }
 .layers-pin .beat { scroll-margin-top: 62svh; }
 .layers-pin .plate-track { position: absolute; inset: 0 calc(-1 * var(--margin)) 0 calc(-1 * var(--margin)); pointer-events: none; }
-.layers-pin .plate { position: sticky; top: 0; z-index: 2; display: flex; justify-content: center; height: var(--stage-h); margin: 0; padding-block: var(--s-3); border-bottom: 1px solid var(--hair); }
+.layers-pin .plate { position: sticky; top: var(--stage-top); z-index: 2; display: flex; justify-content: center; height: var(--stage-h); margin: 0; padding-block: var(--s-3); border-bottom: 1px solid var(--hair); }
 .layers-pin .plate__art { height: 100%; }
-.layers-pin .plate { clip-path: inset(0 100% 0 0); transition: clip-path 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.layers-pin .plate { clip-path: inset(0 100% 0 0); transition: clip-path 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), top 0.2s ease-out; }
 .layers-pin .plate.is-on { clip-path: inset(0 0 0 0); }
-.layers-pin .plate--base { clip-path: none; }
-.layers-pin .plate--fade { clip-path: none; opacity: 0; transition: opacity 0.5s ease-out; }
+.layers-pin .plate--base { clip-path: none; transition: top 0.2s ease-out; }
+.layers-pin .plate--fade { clip-path: none; opacity: 0; transition: opacity 0.5s ease-out, top 0.2s ease-out; }
 .layers-pin .plate--fade.is-on { opacity: 1; }
 .layers-pin .callouts { opacity: 0; transition: opacity 0.15s; }
 .layers-pin .plate.is-current .callouts { opacity: 1; transition: opacity 0.2s 0.5s; }
@@ -388,7 +417,7 @@ strong { font-weight: 600; }
 .layers-pin .step.is-current .step__title .num { background: var(--green); color: var(--black); }
 .layers-pin .layers__end { position: relative; z-index: 3; margin-top: var(--s-7); background: var(--canvas); }
 @media (min-width: 900px) {
-  .layers-pin .layers { --stage-top: var(--s-5); --stage-h: min(calc(var(--u) * 8 * 2406 / 2874), calc(100svh - var(--stage-top) - var(--s-6))); }
+  .layers-pin .layers { --stage-top: calc(var(--header-offset) + var(--s-5)); --stage-h: min(calc(var(--u) * 8 * 2406 / 2874), calc(100svh - var(--header-h) - var(--s-5) - var(--s-6))); }
   .layers-pin .steps { padding-top: 0; }
   .layers-pin .step__body, .layers-pin .beat__text { width: calc(var(--u) * 4); min-height: 70svh; }
   .layers-pin .beat__text { min-height: 60svh; }
@@ -396,9 +425,8 @@ strong { font-weight: 600; }
      watcher's line is, allowing for the sticky header's scroll padding. */
   .layers-pin .beat { scroll-margin-top: 28svh; }
   .layers-pin .plate-track { inset: 0 0 0 auto; width: calc(var(--u) * 8); }
-  .layers-pin .plate { top: var(--stage-top); justify-content: flex-end; padding-block: 0; border-bottom: 0; }
+  .layers-pin .plate { justify-content: flex-end; padding-block: 0; border-bottom: 0; }
 }
-@media (min-width: 1024px) { .layers-pin .layers { --stage-top: calc(var(--header-h) + var(--s-5)); } }
 
 /* ---------- 05 The same steps in a real room ---------- */
 .twin__head { margin-bottom: var(--s-6); }
@@ -469,18 +497,25 @@ strong { font-weight: 600; }
 .compare__table .is-fs { background: var(--black); color: var(--white); font-weight: 600; border-top-color: var(--gray-1); }
 .compare__table thead .is-fs { background: var(--green); color: var(--black); }
 @media (max-width: 767px) {
+  /* Each row is two lines: the label over the wood and foam values. The FiberSprung cell
+     spans both, so its black runs unbroken from the green head to the bottom rule. */
   .compare__table, .compare__table thead, .compare__table tbody { display: block; }
-  .compare__table tr { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "label label label" "fs wood foam"; }
-  .compare__table tbody tr { padding-bottom: var(--s-3); }
+  .compare__table tr { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "fs label label" "fs wood foam"; }
   .compare__table thead th { font-size: 0.9375rem; }
   .compare__table thead tr { grid-template-areas: "fs wood foam"; }
   .compare__table .is-corner { display: none; }
   .compare__table th, .compare__table td { padding: var(--s-3); font-size: 1rem; }
-  .compare__table tbody th { grid-area: label; padding: var(--s-3) var(--s-3) var(--s-2); font-size: var(--fs-label); color: var(--fg-2); }
+  .compare__table tbody th { grid-area: label; padding: var(--s-3) var(--s-3) var(--s-1); font-size: var(--fs-label); color: var(--fg-2); }
   .compare__table .is-fs { grid-area: fs; }
   .compare__table .is-wood { grid-area: wood; }
   .compare__table .is-foam { grid-area: foam; }
-  .compare__table tbody td { border-top: 0; padding-block: var(--s-2); }
+  .compare__table tbody .is-wood, .compare__table tbody .is-foam { border-top: 0; padding-top: 0; }
+  /* The FiberSprung value sits on the same line as the other two values. */
+  .compare__table tbody .is-fs { display: flex; align-items: flex-end; }
+  @supports (grid-template-rows: subgrid) {
+    .compare__table tbody .is-fs { display: grid; grid-template-rows: subgrid; align-items: start; padding-top: 0; }
+    .compare__table tbody .is-fs::before { content: ""; }
+  }
 }
 @media (min-width: 1024px) {
   .compare__text { grid-column: 1 / span 4; margin-bottom: 0; }
@@ -862,12 +897,18 @@ strong { font-weight: 600; }
 /* ---------- About ---------- */
 .team .rule-head { margin-bottom: var(--s-6); }
 .team__list { border-block: var(--rule) solid var(--fg); }
-.team__row { padding-block: var(--s-4); border-top: 1px solid var(--hair); }
+.team__row { display: grid; grid-template-columns: 120px minmax(0, 1fr); grid-template-rows: 1fr auto auto 1fr; column-gap: var(--s-4); padding-block: var(--s-4); border-top: 1px solid var(--hair); }
+.team__photo { grid-row: 1 / -1; align-self: center; }
+.team__photo img { width: 120px; height: 120px; }
+.team__name { grid-area: 2 / 2; }
+.team__what { grid-area: 3 / 2; }
 .team__row:first-child { border-top: 0; }
 .team__name { font: 600 var(--fs-floor) / 1 var(--font-head); text-transform: uppercase; }
 .team__what { max-width: none; margin-top: var(--s-2); font-size: var(--fs-data); font-weight: 500; }
 @media (min-width: 768px) {
-  .team__row { display: grid; grid-template-columns: calc(var(--u) * 3) minmax(0, 1fr); align-items: baseline; padding-block: var(--s-5); }
+  .team__row { grid-template-columns: 120px calc(var(--u) * 3) minmax(0, 1fr); grid-template-rows: auto; column-gap: var(--s-6); align-items: center; padding-block: var(--s-5); }
+  .team__photo { grid-row: auto; }
+  .team__name, .team__what { grid-area: auto; }
   .team__what { margin-top: 0; }
 }
 .pair { display: grid; gap: var(--s-5) 2px; }
@@ -923,6 +964,42 @@ strong { font-weight: 600; }
   .lines { grid-column: 9 / -1; order: 0; align-self: start; margin-bottom: 0; }
 }
 
+/* ---------- Talk to us ---------- */
+/* Stands in for live chat until it is connected. The wrapper is the last thing in <main>,
+   has no height and sticks to the bottom of the screen, so the button behaves as fixed
+   while the page content is showing and stops above the footer instead of covering it. */
+.talk { display: none; }
+.js .talk { display: block; position: sticky; bottom: 0; z-index: 40; height: 0; }
+.talk__btn {
+  position: absolute; right: var(--s-4); bottom: calc(var(--s-4) + env(safe-area-inset-bottom, 0px));
+  min-height: 44px; padding: 0 var(--s-5);
+  background: var(--black); color: var(--white);
+  border: var(--line-annot) solid var(--white); border-radius: var(--radius);
+  font: 600 1rem / 1 var(--font-body); white-space: nowrap; cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s, visibility 0.15s;
+}
+.talk__btn:hover, .talk__btn[aria-expanded="true"] { background: var(--white); color: var(--black); border-color: var(--black); }
+/* A white ring inside a black one, so the focus shows on black and on light sections. */
+.talk__btn:focus-visible { outline: 3px solid var(--black); outline-offset: 3px; box-shadow: 0 0 0 3px var(--white); }
+.talk.is-away .talk__btn { opacity: 0; visibility: hidden; }
+@media (max-width: 767px) {
+  /* Room under the last block of a page for the button to rest in, clear of the content. */
+  .js main > .section:has(+ .talk) { padding-bottom: calc(var(--section-y) + var(--s-5)); }
+  .js main > .fin:has(+ .talk) { padding-bottom: calc(var(--s-7) + var(--s-6)); }
+}
+.talk__panel {
+  position: absolute; right: var(--s-4); bottom: calc(var(--s-4) + 44px + var(--s-2) + env(safe-area-inset-bottom, 0px));
+  width: min(21rem, calc(100vw - 2 * var(--s-4))); padding: var(--s-3) var(--s-5) var(--s-5);
+  border: var(--line-annot) solid var(--white);
+}
+.talk__panel:focus { outline: none; }
+.talk__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); margin-bottom: var(--s-2); }
+.talk__title { font: 700 1.125rem / 1.2 var(--font-body); }
+.talk__close { min-height: 44px; margin-right: calc(-1 * var(--s-2)); padding: 0 var(--s-2); background: none; border: 0; color: var(--white); font: 500 var(--fs-label) / 1 var(--font-body); text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.talk__close:hover { text-decoration-thickness: 2px; }
+.talk__panel a { text-decoration: none; }
+.talk__panel a:hover { text-decoration: underline; }
+
 /* ---------- 404 ---------- */
 .lost { padding-block: var(--s-9); }
 .lost .display { margin-bottom: var(--s-5); font-size: var(--fs-page); }
@@ -938,6 +1015,6 @@ strong { font-weight: 600; }
 
 /* ---------- Print ---------- */
 @media print {
-  .site-header, .menu-btn, .hero__media, .site-footer__pages { display: none; }
+  .site-header, .menu-btn, .hero__media, .site-footer__pages, .talk { display: none; }
   .on-dark { --bg: var(--white); --fg: var(--black); --fg-2: var(--gray-1); --hair: var(--gray-3); }
 }
