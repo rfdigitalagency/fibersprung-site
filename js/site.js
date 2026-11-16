@@ -28,6 +28,8 @@
   var TAWK_PROPERTY = "";
   var TAWK_WIDGET = "";
   if (TAWK_PROPERTY && TAWK_WIDGET) {
+    /* The chat button on the Contact page stays hidden until chat is connected. */
+    document.querySelectorAll("[data-chat-row]").forEach(function (el) { el.hidden = false; });
     var loaded = false;
     var load = function () {
       if (loaded) { return; }
