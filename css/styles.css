@@ -627,6 +627,8 @@ strong { font-weight: 600; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer__pages ul { columns: 2; }
 .site-footer__patents li { color: var(--gray-2); }
+/* A phone number never breaks across two lines. */
+.site-footer__talk a[href^="tel:"] { white-space: nowrap; }
 .site-footer__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-2) var(--s-5); margin-top: var(--s-7); padding-top: var(--s-5); border-top: 1px solid var(--gray-1); font-size: var(--fs-small); color: var(--gray-2); }
 .site-footer__base p { max-width: none; }
 @media (min-width: 768px) {
@@ -635,6 +637,10 @@ strong { font-weight: 600; }
   .site-footer__pages ul { columns: 1; }
   .site-footer__talk { grid-column: 5 / span 4; }
   .site-footer__patents { grid-column: 9 / span 4; }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  /* The column is too narrow for a name and its number, so each number sits under its name. */
+  .site-footer__talk a[href^="tel:"] { display: block; }
 }
 @media (min-width: 1024px) {
   .site-footer__logo { grid-column: 1 / span 3; }
@@ -953,6 +959,12 @@ strong { font-weight: 600; }
 .quote button.btn { margin-top: var(--s-6); cursor: pointer; }
 .quote__status { margin-top: var(--s-4); font-weight: 600; }
 .quote__status:empty { display: none; }
+/* While the form sends through the visitor's mail app (data-mailto on the form tag) it cannot
+   work without script. Without script the fields give way to one line that says so. */
+.quote__nojs { display: none; font-weight: 600; }
+html:not(.js) .quote[data-mailto] .quote__nojs { display: block; }
+html:not(.js) .quote[data-mailto] .quote__grid,
+html:not(.js) .quote[data-mailto] button[type="submit"] { display: none; }
 .quote__done { padding: var(--s-6); border-block: var(--rule) solid var(--fg); }
 .quote__done h3 { margin-bottom: var(--s-3); font: 700 var(--fs-step) / 1.2 var(--font-body); }
 .quote__done p + p { margin-top: var(--s-3); }

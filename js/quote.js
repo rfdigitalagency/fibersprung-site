@@ -62,10 +62,11 @@
   function answers() {
     var lines = [];
     Array.prototype.forEach.call(form.querySelectorAll("[data-label]"), function (field) {
-      var value = field.value.trim();
+      /* Mail apps expect every line of a mailto body to end with a return and a line feed,
+         including the breaks inside a message typed on several lines. */
+      var value = field.value.trim().replace(/\r?\n/g, "\r\n");
       if (value) { lines.push(field.getAttribute("data-label").replace(/\?$/, "") + ": " + value); }
     });
-    /* Mail apps expect each line of a mailto body to end with a return and a line feed. */
     return lines.join("\r\n");
   }
 
