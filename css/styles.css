@@ -959,12 +959,6 @@ strong { font-weight: 600; }
 .quote button.btn { margin-top: var(--s-6); cursor: pointer; }
 .quote__status { margin-top: var(--s-4); font-weight: 600; }
 .quote__status:empty { display: none; }
-/* While the form sends through the visitor's mail app (data-mailto on the form tag) it cannot
-   work without script. Without script the fields give way to one line that says so. */
-.quote__nojs { display: none; font-weight: 600; }
-html:not(.js) .quote[data-mailto] .quote__nojs { display: block; }
-html:not(.js) .quote[data-mailto] .quote__grid,
-html:not(.js) .quote[data-mailto] button[type="submit"] { display: none; }
 .quote__done { padding: var(--s-6); border-block: var(--rule) solid var(--fg); }
 .quote__done h3 { margin-bottom: var(--s-3); font: 700 var(--fs-step) / 1.2 var(--font-body); }
 .quote__done p + p { margin-top: var(--s-3); }

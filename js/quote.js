@@ -1,7 +1,7 @@
 /* fibersprung.com: the quote form on the Contact page.
-   Checks the answers, shows each problem under its field, then sends.
-   Where the form goes is set in one place, on the form tag in contact.html:
-   data-mailto while there is no form service, the action attribute once there is. */
+   Checks the answers, shows each problem under its field, then sends by fetch and answers on the page.
+   Where the form goes is set in one place, the form tag in contact.html (action and access_key).
+   Without script the same form posts on its own. */
 (function () {
   "use strict";
   var form = document.getElementById("quote");
@@ -59,15 +59,10 @@
     field.addEventListener("change", function () { if (field.getAttribute("aria-invalid")) { check(name); } });
   });
 
-  function answers() {
-    var lines = [];
-    Array.prototype.forEach.call(form.querySelectorAll("[data-label]"), function (field) {
-      /* Mail apps expect every line of a mailto body to end with a return and a line feed,
-         including the breaks inside a message typed on several lines. */
-      var value = field.value.trim().replace(/\r?\n/g, "\r\n");
-      if (value) { lines.push(field.getAttribute("data-label").replace(/\?$/, "") + ": " + value); }
-    });
-    return lines.join("\r\n");
+  /* The email subject names the floor chosen, for example "Quote request: Pro". */
+  function subject() {
+    var chosen = floorField ? floorField.value.trim() : "";
+    return chosen ? "Quote request: " + chosen : "Quote request";
   }
 
   function done(title, text) {
@@ -99,24 +94,26 @@
       done("Thanks. We have your request.", "We will be in touch.");
       return;
     }
-    var action = form.getAttribute("action");
-    var mailto = form.getAttribute("data-mailto");
-    if (mailto) {
-      window.location.href = "mailto:" + mailto + "?subject=" + encodeURIComponent("Quote request from fibersprung.com") + "&body=" + encodeURIComponent(answers());
-      status.textContent = "Your mail app should open with your answers filled in. Send that email to finish. If nothing opened, call or email us.";
-      return;
-    }
+    form.elements.subject.value = subject();
+    var data = {};
+    new FormData(form).forEach(function (value, key) { data[key] = value; });
     var button = form.querySelector("button[type=submit]");
     button.disabled = true;
     status.textContent = "Sending.";
-    fetch(action, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) })
+    fetch(form.getAttribute("action"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(data)
+    })
       .then(function (res) {
-        if (!res.ok) { throw new Error("send failed"); }
-        done("Thanks. We have your request.", "We will be in touch. If it is urgent, call us.");
+        return res.json().catch(function () { return {}; }).then(function (json) {
+          if (!res.ok || !json.success) { throw new Error("send failed"); }
+          done("Thanks. We have your request.", "We will be in touch. If it is urgent, call us.");
+        });
       })
       .catch(function () {
         button.disabled = false;
-        status.textContent = "That did not send. Call us or email info@fibersprung.com instead.";
+        status.textContent = "Your request did not send. Your answers are still here, so you can try again, or call Spencer at 909-553-0729 or Micah at 401-855-5520.";
       });
   });
 })();

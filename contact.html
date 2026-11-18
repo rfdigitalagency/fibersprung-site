@@ -99,10 +99,12 @@
 <!-- 02 Quote form and direct lines -->
 <section class="section on-white" aria-labelledby="quote-h">
   <div class="wrap grid">
-    <!-- OPEN: quote form endpoint -->
-    <!-- Until the form service is set up, the form opens the visitor's mail app (data-mailto).
-         To switch: put the service address in action, set method to post, and delete data-mailto. -->
-    <form class="quote" id="quote" action="contact.html" method="get" data-mailto="info@fibersprung.com" aria-labelledby="quote-h">
+    <!-- The form posts to Web3Forms, which emails info@fibersprung.com. The address and the access key
+         are set here and nowhere else. The access key is public by design. With script, js/quote.js
+         checks the answers and sends by fetch; without script the form posts on its own. -->
+    <form class="quote" id="quote" action="https://api.web3forms.com/submit" method="post" aria-labelledby="quote-h">
+      <input type="hidden" name="access_key" value="275b1b48-a063-4b2d-b54f-38cb7f066de9">
+      <input type="hidden" name="subject" value="Quote request">
       <h2 class="quote__title" id="quote-h">Tell us about your space</h2>
       <div class="quote__grid">
         <div class="field">
@@ -159,14 +161,12 @@
         </div>
       </div>
       <p class="quote__hp" aria-hidden="true"><label>Leave this box empty <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label></p>
-      <p class="quote__nojs">This form needs JavaScript, which is turned off in your browser. Call or email us instead.</p>
       <button class="btn btn--primary" type="submit">Send my quote request</button>
       <p class="quote__status" id="quote-status" role="status" aria-live="polite"></p>
     </form>
 
     <div class="lines" id="chat">
       <h2 class="quote__title" id="lines-h">Or talk to us</h2>
-      <!-- OPEN: tawk.to property ID -->
       <dl class="readout" aria-labelledby="lines-h">
         <div><dt>Spencer Hering</dt><dd><a href="tel:+19095530729">909-553-0729</a></dd></div>
         <div><dt>Micah Reyes</dt><dd><a href="tel:+14018555520">401-855-5520</a></dd></div>
@@ -244,6 +244,5 @@
   </div>
 </footer>
 
-<!-- OPEN: tawk.to property ID -->
 </body>
 </html>

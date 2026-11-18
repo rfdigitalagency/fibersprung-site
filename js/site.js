@@ -3,12 +3,12 @@
 (function () {
   "use strict";
 
-  /* Live chat (tawk.to). Paste the ID from the tawk.to widget code here, as "property/widget"
+  /* Live chat (tawk.to). The ID from the tawk.to widget code, as "property/widget"
      (the two parts of the embed address after embed.tawk.to/).
-     Empty: the Talk to us button stands in for chat. Set: the button goes and the widget loads.
+     Set: the Talk to us button goes and the widget loads. Empty: the button stands in for chat.
      The widget's color is not set here. tawk.to takes it from its dashboard
      (Chat Widget, Widget Appearance): set it to black, #000000. */
-  var TAWK_ID = "";
+  var TAWK_ID = "6afe0c39ca4ab43cc757a9bd/1k7o5vg9c";
 
   var root = document.documentElement;
   var header = document.querySelector(".site-header");
@@ -95,7 +95,8 @@
   if (header) { header.addEventListener("focusin", function () { showHeader(true); }); }
   queue();
 
-  /* Live chat. The widget loads on the first scroll, tap or key press, never during page load. */
+  /* Live chat. The widget loads once the page has finished loading and the browser is idle,
+     or on the first scroll, tap or key press if that comes first. Never during page load. */
   if (TAWK_ID) {
     /* The "Start a live chat" rows stay hidden until chat is connected. */
     document.querySelectorAll("[data-chat-row]").forEach(function (el) { el.hidden = false; });
@@ -115,6 +116,12 @@
     ["scroll", "pointerdown", "keydown"].forEach(function (type) {
       window.addEventListener(type, load, { once: true, passive: true });
     });
+    var whenIdle = function () {
+      if (window.requestIdleCallback) { window.requestIdleCallback(load, { timeout: 3000 }); }
+      else { window.setTimeout(load, 1); }
+    };
+    if (document.readyState === "complete") { whenIdle(); }
+    else { window.addEventListener("load", whenIdle, { once: true }); }
     document.querySelectorAll("[data-chat]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
