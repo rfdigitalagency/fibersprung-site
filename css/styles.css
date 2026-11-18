@@ -937,7 +937,7 @@ strong { font-weight: 600; }
 }
 
 /* ---------- Contact: the quote form ---------- */
-.quote, .lines { grid-column: 1 / -1; }
+.quote, .quote__done, .lines { grid-column: 1 / -1; }
 .lines { order: -1; margin-bottom: var(--s-7); }
 .lines a:not(.btn) { text-decoration: none; }
 .lines a:not(.btn):hover { text-decoration: underline; }
@@ -959,9 +959,12 @@ strong { font-weight: 600; }
 .quote button.btn { margin-top: var(--s-6); cursor: pointer; }
 .quote__status { margin-top: var(--s-4); font-weight: 600; }
 .quote__status:empty { display: none; }
-.quote__done { padding: var(--s-6); border-block: var(--rule) solid var(--fg); }
+.quote__done { align-self: start; padding: var(--s-6); border-block: var(--rule) solid var(--fg); }
+/* The thanks box takes focus by script so screen readers announce it; it is not a control, so no focus ring. */
+.quote__done:focus { outline: none; }
 .quote__done h3 { margin-bottom: var(--s-3); font: 700 var(--fs-step) / 1.2 var(--font-body); }
 .quote__done p + p { margin-top: var(--s-3); }
+.quote__done a { white-space: nowrap; }
 .fin { padding-block: var(--s-7); }
 .fin p { max-width: none; font-size: var(--fs-lede); }
 @media (min-width: 600px) {
@@ -969,7 +972,7 @@ strong { font-weight: 600; }
   .field--wide { grid-column: 1 / -1; }
 }
 @media (min-width: 900px) {
-  .quote { grid-column: 1 / span 7; }
+  .quote, .quote__done { grid-column: 1 / span 7; }
   .lines { grid-column: 9 / -1; order: 0; align-self: start; margin-bottom: 0; }
 }
 

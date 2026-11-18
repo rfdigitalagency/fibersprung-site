@@ -74,7 +74,15 @@
     var p = document.createElement("p");
     p.textContent = text;
     var p2 = document.createElement("p");
-    p2.textContent = "Spencer 909-553-0729. Micah 401-855-5520.";
+    /* Tappable on phones. */
+    [["Spencer", "909-553-0729"], ["Micah", "401-855-5520"]].forEach(function (person, i) {
+      var a = document.createElement("a");
+      a.href = "tel:+1" + person[1].replace(/-/g, "");
+      a.textContent = person[1];
+      p2.appendChild(document.createTextNode((i ? " " : "") + person[0] + " "));
+      p2.appendChild(a);
+      p2.appendChild(document.createTextNode("."));
+    });
     box.appendChild(h); box.appendChild(p); box.appendChild(p2);
     form.replaceWith(box);
     box.focus();
