@@ -1161,11 +1161,12 @@ strong { font-weight: 600; }
 .marley__samples img, .crew img { width: 100%; height: auto; }
 
 /* Photo captions show on hover only (Micah, Round 1: drop the photo descriptions). Numbered sequence labels, drawing notes and layer text are not .caption and stay visible. On touch screens the caption is kept for screen readers only. */
-figure:has(> figcaption.caption) { position: relative; }
-figure > figcaption.caption { position: absolute; inset: auto 0 0 0; margin: 0; padding: var(--s-6) var(--s-4) var(--s-3); background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .78)); color: var(--white); font-weight: 500; opacity: 0; transition: opacity .2s ease; pointer-events: none; }
+figure:has(> figcaption.caption) { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; }
+figure:has(> figcaption.caption) > * { grid-area: 1 / 1; }
+figure > figcaption.caption { align-self: end; z-index: 1; margin: 0; padding: var(--s-6) var(--s-4) var(--s-3); background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .78)); color: var(--white); font-weight: 500; opacity: 0; transition: opacity .2s ease; pointer-events: none; }
 figure:hover > figcaption.caption, figure:focus-within > figcaption.caption { opacity: 1; }
 figure:has(> figcaption.caption) img { display: block; }
 @media (prefers-reduced-motion: reduce) { figure > figcaption.caption { transition: none; } }
 @media not all and (hover: hover) {
-  figure > figcaption.caption { inset: auto; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; opacity: 1; }
+  figure > figcaption.caption { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; opacity: 1; }
 }
