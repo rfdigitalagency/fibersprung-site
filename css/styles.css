@@ -438,8 +438,11 @@ strong { font-weight: 600; }
 @media (min-width: 768px) {
   .twin__head .rule-head { grid-column: 1 / span 7; margin-bottom: 0; }
   .twin__head p { grid-column: 9 / -1; align-self: end; }
-  .twin__frames { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; }
+  .twin__frames { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
   .twin__frames figcaption { align-items: flex-start; padding: var(--s-4) var(--s-5) 0; }
+}
+@media (min-width: 1024px) {
+  .twin__frames { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* ---------- 06 Technology ---------- */
@@ -479,9 +482,9 @@ strong { font-weight: 600; }
 .materials dt { font-size: var(--fs-label); color: var(--fg-2); }
 .materials dd { font-size: var(--fs-data); font-weight: 500; line-height: 1.35; }
 @media (min-width: 900px) {
-  .tech__text { grid-column: 1 / span 6; }
+  .tech__text { grid-column: 1 / span 8; }
   .bend { grid-column: 8 / -1; align-self: center; }
-  .materials { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .materials { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .materials > div { padding: var(--s-5) var(--s-5) var(--s-5) 0; border-top: 0; }
   .materials > div + div { padding-left: var(--s-5); border-left: 1px solid var(--hair); }
 }
@@ -626,7 +629,6 @@ strong { font-weight: 600; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer__pages ul { columns: 2; }
-.site-footer__patents li { color: var(--gray-2); }
 /* A phone number never breaks across two lines. */
 .site-footer__talk a[href^="tel:"] { white-space: nowrap; }
 .site-footer__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-2) var(--s-5); margin-top: var(--s-7); padding-top: var(--s-5); border-top: 1px solid var(--gray-1); font-size: var(--fs-small); color: var(--gray-2); }
@@ -636,7 +638,7 @@ strong { font-weight: 600; }
   .site-footer__pages { grid-column: 1 / span 4; }
   .site-footer__pages ul { columns: 1; }
   .site-footer__talk { grid-column: 5 / span 4; }
-  .site-footer__patents { grid-column: 9 / span 4; }
+  .site-footer__social { grid-column: 9 / span 4; }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   /* The column is too narrow for a name and its number, so each number sits under its name. */
@@ -646,7 +648,7 @@ strong { font-weight: 600; }
   .site-footer__logo { grid-column: 1 / span 3; }
   .site-footer__pages { grid-column: 5 / span 3; }
   .site-footer__talk { grid-column: 8 / span 3; }
-  .site-footer__patents { grid-column: 11 / span 2; }
+  .site-footer__social { grid-column: 11 / span 2; }
 }
 
 /* ---------- Interior pages: head and jump list ---------- */
@@ -1031,3 +1033,129 @@ strong { font-weight: 600; }
   .site-header, .menu-btn, .hero__media, .site-footer__pages, .talk { display: none; }
   .on-dark { --bg: var(--white); --fg: var(--black); --fg-2: var(--gray-1); --hair: var(--gray-3); }
 }
+
+/* ---------- Round 1: Choose your floor, simplified to selection and price ---------- */
+.range__group + .range__group { margin-top: var(--s-7); }
+.range__label { margin-bottom: var(--s-3); font: 600 var(--fs-label) / 1.3 var(--font-body); color: var(--fg-2); }
+.range--simple .floor { display: grid; grid-template-columns: 1fr auto; gap: var(--s-3) var(--s-5); align-items: end; }
+.range--simple .floor__id { grid-column: 1 / -1; }
+.range--simple .floor__price { font-size: var(--fs-data); font-weight: 500; }
+.range--simple .price__unit { font-size: var(--fs-small); font-weight: 400; color: var(--fg-2); }
+.range--simple .floor__go { text-align: right; white-space: nowrap; }
+@media (min-width: 1024px) {
+  .range--simple .floor { grid-template-columns: calc(var(--u) * 6) calc(var(--u) * 3) 1fr; align-items: center; }
+  .range--simple .floor__id { grid-column: auto; }
+}
+
+/* Round 1: paragraph spacing where a second paragraph was added */
+.thesis__text p + p, .compare__text p + p { margin-top: var(--s-4); }
+
+/* Round 1: Stage Floor */
+.duo__intro { max-width: 44em; margin-bottom: var(--s-7); font-size: 1.125rem; }
+.sheet__tag { margin-top: var(--s-2); font-weight: 600; }
+.duo__note { margin-top: var(--s-6); font-size: var(--fs-label); color: var(--fg-2); }
+
+/* Round 1: Technology. The bend test drawing, the five-frame Bronx strip */
+.bendart { grid-column: 1 / -1; }
+.bendart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.bendart .ba-base { stroke: var(--gray-1); stroke-width: 2; stroke-dasharray: 8 8; }
+.bendart .ba-pine { fill: none; stroke: var(--gray-2); stroke-width: 2.5; }
+.bendart .ba-pine--uneven { stroke-dasharray: 10 7; }
+.bendart .ba-fs { fill: none; stroke: var(--green); stroke-width: 7; stroke-linecap: round; }
+.bendart .ba-support { fill: none; stroke: var(--white); stroke-width: 2.5; }
+.bendart .ba-load { stroke: var(--white); stroke-width: 4; }
+.bendart .ba-load-head { fill: var(--white); }
+.bendart .ba-dim { stroke: var(--orange); stroke-width: 2; }
+.bendart .ba-text { fill: var(--white); font: 500 26px / 1 var(--font-body); }
+.bendart .ba-text--fs { fill: var(--green); }
+.bendart .ba-text--pine { fill: var(--gray-2); }
+.bendart .ba-text--dim { fill: var(--orange); }
+.bendart__key { display: grid; gap: var(--s-3); margin-top: var(--s-6); }
+.bendart__key li { display: flex; gap: var(--s-4); align-items: baseline; }
+.bendart__key .sw { flex: none; display: inline-block; width: 32px; height: 0; border-top: 6px solid var(--green); translate: 0 -4px; }
+.bendart__key .sw--pine { border-top: 3px solid #D9B98A; }
+.bendart__note { margin-top: var(--s-4); font-size: var(--fs-label); color: var(--gray-2); }
+@media (max-width: 599px) { .bendart .ba-text { font-size: 40px; } }
+.mat__pat { margin-top: var(--s-5); font-size: var(--fs-label); color: var(--fg-2); }
+@media (min-width: 1024px) { .strip5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.payoff__text p + p { margin-top: var(--s-4); }
+
+/* Round 1: About. Built in Rhode Island map */
+.shop__text, .shop__map { grid-column: 1 / -1; }
+.shop__text .rule-head { margin-bottom: var(--s-5); }
+.shop__text p + p, .shop__addr + p { margin-top: var(--s-5); }
+.shop__addr { margin-top: var(--s-5); font-style: normal; font-weight: 500; line-height: 1.5; }
+.shop__map { margin-top: var(--s-7); }
+.shop__map svg { display: block; width: 100%; max-width: 360px; height: auto; margin-inline: auto; }
+.shop__state path { fill: var(--canvas, #efefef); stroke: var(--black); stroke-width: 1.5; stroke-linejoin: round; }
+.shop__pin { fill: var(--green); stroke: var(--black); stroke-width: 2.5; }
+.shop__label { fill: var(--black); font: 600 18px / 1 var(--font-body); }
+@media (min-width: 900px) {
+  .shop__text { grid-column: 1 / span 6; align-self: center; }
+  .shop__map { grid-column: 8 / -1; margin-top: 0; }
+}
+
+/* Round 1: Contact */
+.lines__note, .lines__social { margin-top: var(--s-5); font-size: var(--fs-label); }
+.fin__in { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4) var(--s-6); }
+.fin__logo img { display: block; width: 180px; height: auto; }
+
+/* ---------- Products, Round 1: floors first (black), surfaces second (gray) ---------- */
+.stepmark { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-4); font-size: var(--fs-label); font-weight: 600; color: var(--fg-2); }
+.stepmark .num { width: 1.75rem; height: 1.75rem; font-size: 0.875rem; }
+.compare-all__intro { max-width: 40rem; margin-top: calc(var(--s-5) * -1); }
+.compare-all .spec thead a { color: inherit; text-decoration: none; }
+.compare-all .spec thead a:hover { text-decoration: underline; }
+.jump--split { align-items: center; }
+.jump__label { font-size: var(--fs-label); color: var(--fg-2); }
+.jump__label + a { margin-left: calc(var(--s-6) * -0.5); }
+.jump__label:not(:first-child) { margin-left: var(--s-4); padding-left: var(--s-6); border-left: 1px solid var(--hair); }
+.sheet__photos--one { max-width: 30rem; }
+.surfaces__soon { max-width: 40rem; margin-top: var(--s-6); }
+.marley__media, .marley__care { grid-column: 1 / -1; }
+.marley__media { margin-bottom: var(--s-6); }
+.marley__text p + p, .marley__text .lede + p { margin-top: var(--s-4); }
+.marley__care { margin-top: var(--s-7); }
+.marley__care .sheet__label { margin-top: 0; }
+.marley__care li { max-width: 40rem; font-weight: 400; }
+.marley .facts { margin-top: var(--s-6); }
+@media (min-width: 900px) {
+  .marley__media { grid-column: 7 / -1; grid-row: 1; align-self: start; margin-bottom: 0; }
+  .marley .facts { grid-column: 1 / span 5; margin-top: var(--s-7); }
+  .marley__care { grid-column: 7 / -1; align-self: end; }
+}
+.sheet__photos--one { grid-template-columns: minmax(0, 1fr); max-width: none; }
+@media (min-width: 900px) { .sheet__photos--one { grid-column: 1 / span 4; } }
+.surfaces__head .surfaces__title { grid-column: 1 / -1; align-self: end; }
+@media (min-width: 900px) {
+  .surfaces__head .surfaces__title { grid-column: 1 / span 5; }
+  .marley__care { align-self: start; }
+}
+@media (max-width: 767px) {
+  .jump--split .jump__label { flex-basis: 100%; margin: var(--s-3) 0 0; padding: 0; border: 0; }
+  .jump--split .jump__label + a { margin-left: 0; }
+}
+
+/* Bend test, Round 1 v2: render plus Micah's curves as an overlay */
+.bendviz { position: relative; }
+.bendviz img { display: block; width: 100%; height: auto; }
+.bendart .bendviz__inset { display: block; width: 100%; height: auto; margin-top: var(--s-4); overflow: visible; }
+.bv-base { stroke: var(--gray-2); stroke-width: 1.5; stroke-dasharray: 6 6; }
+.bv-pine { fill: none; stroke: #D9B98A; stroke-width: 2; opacity: 0.85; }
+.bv-fs { fill: none; stroke: var(--green); stroke-width: 5; stroke-linecap: round; }
+.bv-pin { fill: var(--black); stroke: var(--white); stroke-width: 2.5; }
+.bv-dim { stroke: var(--orange); stroke-width: 2; }
+.bv-dim-head { fill: none; stroke: var(--orange); stroke-width: 2; }
+.bv-text { fill: var(--white); font: 500 21px / 1 var(--font-body); }
+.bv-text--pine { fill: #D9B98A; }
+@media (min-width: 700px) {
+  .bendart .bendviz__inset { position: absolute; top: 5%; right: 3%; width: 42%; margin-top: 0; }
+}
+
+/* Late Round 1: more current-site photos */
+.sheet__photos--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
+@media (min-width: 900px) { .sheet__photos--two { grid-column: 1 / span 7; } }
+.marley__samples, .crew { grid-column: 1 / -1; display: grid; gap: var(--s-4); margin-top: var(--s-7); }
+.crew { grid-column: 1 / -1; }
+@media (min-width: 768px) { .marley__samples, .crew { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; } }
+.marley__samples img, .crew img { width: 100%; height: auto; }

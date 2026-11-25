@@ -60,7 +60,6 @@
         <li><a href="stage-floor.html">Stage Floor</a></li>
         <li><a href="technology.html" aria-current="page">Technology &amp; Process</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
         <li class="site-nav__cta"><a class="btn btn--primary" href="contact.html#quote">Get a quote</a></li>
       </ul>
       <ul class="site-nav__contact">
@@ -93,23 +92,37 @@
   <div class="wrap grid">
     <div class="bendfull__text">
       <h2 class="rule-head" id="bend-h">Same bend,<br>every time.</h2>
-      <p>We bent 1x4 pine and our fiberglass tube. Pine moved 3 to 7 mm. Our tube moved 3 mm every time.</p>
+      <p>Our fiberglass was purpose-designed to match the bend of a classic wooden sprung floor, with much more consistency. To show it, we bent 1x4 pine and our fiberglass tube over a 4 ft span, with 50 lb at the center. Pine moved 3 to 7 mm, and some pieces bent unevenly. Our tube moved 3 mm every time.</p>
     </div>
-    <figure class="bend bend--wide">
-      <figcaption class="bend__title">Bend under test, in mm</figcaption>
-      <div class="bend__plot">
-        <div class="bend__scale" aria-hidden="true">
-          <span style="--v:0">0</span><span class="minor" style="--v:1">1</span><span style="--v:2">2</span><span class="minor" style="--v:3">3</span><span style="--v:4">4</span><span class="minor" style="--v:5">5</span><span style="--v:6">6</span><span class="minor" style="--v:7">7</span><span style="--v:8">8</span><span class="minor" style="--v:9">9</span><span style="--v:10">10</span>
-        </div>
-        <div class="bend__row">
-          <div class="bend__track" aria-hidden="true"><span class="bend__mark" style="--v:3"></span><span class="bend__tag bend__tag--fs">3 mm</span></div>
-          <p class="bend__key"><strong>FS-Pro fiberglass tube.</strong> 6 samples from 2 suppliers. Bent 3 mm every time.</p>
-        </div>
-        <div class="bend__row">
-          <div class="bend__track bend__track--pine" aria-hidden="true"><span class="bend__span"><b>3 to 7 mm</b></span><span class="bend__bar" style="--a:3;--b:7"></span><span class="bend__out" style="--v:10"></span></div>
-          <p class="bend__key"><strong>1x4 pine.</strong> 10 samples from 2 sources. Bent 3 to 7 mm, with one sample at 10 mm. The bend was sometimes asymmetric.</p>
-        </div>
+    <figure class="bendart">
+      <div class="bendviz">
+        <picture>
+          <source type="image/avif" sizes="(min-width: 900px) 66vw, 100vw" srcset="img/technology/bend-test-720.avif 720w, img/technology/bend-test-1080.avif 1080w, img/technology/bend-test-1440.avif 1440w, img/technology/bend-test-1672.avif 1672w">
+          <source type="image/webp" sizes="(min-width: 900px) 66vw, 100vw" srcset="img/technology/bend-test-720.webp 720w, img/technology/bend-test-1080.webp 1080w, img/technology/bend-test-1440.webp 1440w, img/technology/bend-test-1672.webp 1672w">
+          <img src="img/technology/bend-test-1080.webp" alt="An illustration of the bend test: a dark fiberglass tube resting on two steel supports, bending slightly under a steel weight at its center, with pine boards behind it." width="1672" height="800" loading="lazy" decoding="async">
+        </picture>
+        <svg class="bendviz__inset" viewBox="-10 0 630 130" role="img" aria-labelledby="bendviz-t">
+          <title id="bendviz-t">Bend at the center: the FiberSprung tube 3 mm every time, pine 3 to 7 mm and uneven. Drawn larger than life.</title>
+          <line class="bv-base" x1="40" y1="50" x2="560" y2="50"/>
+          <path class="bv-pine" d="M40 50 C 180 96 380 92 560 50"/>
+          <path class="bv-pine" d="M40 50 C 150 118 420 104 560 50"/>
+          <path class="bv-pine" d="M40 50 C 220 128 470 120 560 50"/>
+          <path class="bv-fs" d="M40 50 C 200 82 400 82 560 50"/>
+          <circle class="bv-pin" cx="40" cy="50" r="7"/>
+          <circle class="bv-pin" cx="560" cy="50" r="7"/>
+          <line class="bv-dim" x1="300" y1="54" x2="300" y2="103"/>
+          <path class="bv-dim-head" d="M294 96 L300 105 L306 96"/>
+          <line class="bv-dim" x1="390" y1="54" x2="390" y2="66"/>
+          <path class="bv-dim-head" d="M384 62 L390 71 L396 62"/>
+          <text class="bv-text bv-text--pine" x="288" y="36" text-anchor="end">Pine: 3 to 7 mm</text>
+          <text class="bv-text bv-text--fs" x="402" y="36">FiberSprung: 3 mm</text>
+        </svg>
       </div>
+      <ul class="bendart__key">
+        <li><span class="sw sw--fs" aria-hidden="true"></span><span><strong>FS-Pro fiberglass tube.</strong> 6 samples from 2 suppliers. Bent 3 mm every time.</span></li>
+        <li><span class="sw sw--pine" aria-hidden="true"></span><span><strong>1x4 pine.</strong> 10 samples from 2 sources. Bent 3 to 7 mm, with one sample at 10 mm. Some bent unevenly.</span></li>
+      </ul>
+      <p class="bendart__note">An illustration of the test: 4 ft span, 50 lb at the center. The bend is drawn larger than life so it can be seen.</p>
     </figure>
     <dl class="readout facts">
       <div><dt>Pine modulus of elasticity</dt><dd>6,800 to 12,100 MPa, depending on fibers and water content</dd></div>
@@ -117,7 +130,7 @@
   </div>
 </section>
 
-<!-- 03 Materials and patents -->
+<!-- 03 Materials (patents are on About only, Round 1) -->
 <section class="section mat on-canvas" id="materials" aria-labelledby="mat-h">
   <div class="wrap grid">
     <h2 class="rule-head" id="mat-h">What it is<br>made of.</h2>
@@ -143,17 +156,10 @@
       <dl class="readout facts">
         <div><dt>Tubes</dt><dd>Pultruded fiberglass</dd></div>
         <div><dt>Fittings</dt><dd>Hard elastomer</dd></div>
-        <div><dt>Joint brackets and fasteners</dt><dd>Aluminum</dd></div>
+        <div><dt>Joint brackets</dt><dd>Aluminum</dd></div>
+        <div><dt>Fasteners</dt><dd>Steel</dd></div>
         <div><dt>Support surface</dt><dd>Approved plywood with waterproof sealant</dd></div>
       </dl>
-      <h3 class="sheet__label" id="patents-h">Patents</h3>
-      <ul class="plain-list num-list" aria-labelledby="patents-h">
-        <li>US 10329777</li>
-        <li>US 10731359</li>
-        <li>US 11047138</li>
-        <li>US 11655639</li>
-        <li>EU EP 3966404</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -163,58 +169,28 @@
   <div class="wrap">
     <div class="process__head">
       <h2 class="rule-head" id="process-h">Four steps.</h2>
-      <p class="lede">From the drawing to the surface you dance on, with the same steps in a real room.</p>
     </div>
     <ol class="psteps">
       <li class="pstep grid">
         <div class="step__body pstep__body">
           <h3 class="step__title"><span class="num" aria-hidden="true">1</span>Design and planning</h3>
-          <p>Every component is made from 3D CAD, with tolerances on the drawings. Your floor is laid out in 2D CAD from architectural CAD, measurements or scans.</p>
+          <p>To quote your floor, we lay it out roughly in CAD from architectural drawings, measurements or scans. Once you order and the deposit is paid, we make a detailed layout and a bill of materials. Planned layouts mean less waste and lower cost, and they give the install team its plan.</p>
         </div>
         <div class="pstep__media">
-          <div class="plate">
-            <div class="plate__art">
-              <svg class="plate__outline" viewBox="0 0 2874 2406" role="img" aria-label="Line drawing of the fiberglass grid, traced in orange.">
-                <path pathLength="1" d="M1728,25 1688,41 1688,48 1692,54 1688,57 1611,92 1604,90 1582,100 1582,104 1486,148 1476,138 1470,138 1434,155 1434,161 1438,167 1436,170 1339,213 1332,211 1309,222 1306,228 1212,270 1207,270 1198,261 1174,270 1157,278 1160,293 1059,338 1052,336 1029,346 1026,352 942,389 935,380 930,379 897,394 891,398 894,412 810,450 804,448 779,458 778,462 678,508 672,510 664,500 660,500 624,515 620,520 623,532 515,580 511,578 486,588 486,594 384,640 377,642 369,632 365,631 328,647 324,651 328,662 326,665 216,714 212,711 188,722 184,728 95,768 86,758 81,758 47,772 39,778 57,813 64,820 74,820 78,824 81,816 98,809 100,804 196,762 208,779 214,782 252,846 252,849 242,856 262,891 266,892 275,888 278,891 308,943 220,984 216,982 212,974 208,972 166,991 164,994 165,1001 180,1028 188,1036 200,1036 204,1041 206,1033 222,1026 226,1020 324,976 336,994 342,997 389,1077 390,1080 381,1086 380,1090 399,1124 402,1126 414,1122 416,1124 450,1181 360,1225 352,1214 348,1213 304,1233 302,1236 304,1242 320,1272 328,1279 339,1279 344,1284 344,1277 363,1268 366,1262 467,1216 477,1232 484,1236 534,1321 534,1325 528,1328 525,1334 544,1369 548,1372 560,1368 563,1370 600,1432 598,1436 508,1479 506,1478 500,1468 494,1467 451,1488 450,1496 468,1528 475,1535 487,1535 492,1540 492,1532 511,1522 514,1517 616,1468 619,1475 627,1484 633,1488 686,1578 688,1582 680,1586 678,1591 697,1626 702,1632 714,1627 717,1629 758,1698 756,1702 665,1747 661,1746 654,1736 650,1735 606,1756 604,1760 605,1766 624,1798 630,1805 642,1804 648,1811 649,1808 647,1802 668,1792 670,1786 776,1735 785,1750 792,1755 849,1851 848,1854 840,1859 839,1865 860,1902 864,1905 876,1900 880,1902 924,1978 924,1982 830,2030 826,2029 819,2018 816,2018 770,2041 768,2045 769,2052 790,2088 794,2091 807,2090 812,2097 814,2093 812,2088 832,2076 835,2071 942,2016 952,2031 958,2034 1020,2140 1010,2146 1009,2151 1032,2191 1036,2194 1049,2190 1090,2256 1088,2262 992,2312 984,2301 980,2298 932,2322 930,2326 931,2333 956,2374 970,2372 976,2380 978,2376 974,2370 996,2358 1010,2346 1106,2296 1109,2296 1109,2300 1117,2310 1125,2312 1149,2298 1148,2284 1154,2280 1158,2280 1160,2275 1156,2271 1158,2268 1278,2205 1286,2205 1314,2190 1333,2176 1441,2118 1444,2120 1452,2132 1458,2134 1484,2122 1482,2107 1488,2103 1492,2104 1495,2098 1492,2094 1494,2090 1610,2029 1616,2030 1646,2014 1664,2001 1767,1946 1778,1960 1785,1962 1809,1950 1809,1934 1814,1931 1817,1932 1820,1926 1818,1920 1914,1868 1919,1870 1948,1855 1966,1841 2044,1800 2058,1814 2065,1814 2086,1802 2087,1788 2090,1784 2094,1785 2098,1780 2095,1774 2210,1712 2216,1714 2242,1700 2261,1686 2354,1636 2367,1650 2375,1650 2396,1639 2398,1623 2402,1622 2407,1617 2405,1610 2516,1550 2522,1552 2570,1522 2656,1477 2668,1490 2676,1491 2698,1479 2700,1463 2704,1464 2708,1458 2708,1450 2797,1402 2802,1404 2828,1390 2832,1392 2834,1398 2838,1394 2836,1384 2848,1376 2848,1370 2820,1336 2814,1334 2774,1356 2772,1364 2778,1370 2776,1373 2688,1419 2682,1417 2670,1424 2666,1422 2621,1368 2604,1342 2590,1323 2580,1318 2504,1223 2506,1214 2601,1164 2606,1166 2632,1152 2636,1160 2640,1156 2638,1146 2650,1139 2649,1130 2622,1098 2617,1098 2578,1119 2576,1125 2582,1133 2580,1136 2494,1180 2488,1178 2476,1184 2470,1182 2418,1116 2402,1092 2386,1073 2382,1072 2308,980 2310,969 2400,924 2408,924 2432,912 2436,918 2440,914 2438,905 2449,898 2448,888 2424,860 2418,858 2381,877 2378,886 2383,892 2382,894 2298,936 2291,934 2276,941 2226,880 2202,845 2188,832 2122,750 2124,748 2126,750 2130,744 2128,739 2124,744 2120,743 2123,738 2212,695 2218,696 2242,684 2246,686 2246,690 2250,686 2248,676 2258,670 2258,660 2235,633 2228,632 2192,649 2190,658 2194,664 2193,666 2112,706 2104,704 2090,710 2044,654 2014,612 2008,610 1942,528 1944,518 2029,478 2040,477 2062,466 2066,472 2069,468 2068,458 2078,450 2078,444 2056,418 2050,415 2013,432 2010,437 2015,446 2013,449 1932,487 1926,485 1911,490 1870,440 1852,412 1841,399 1834,395 1773,319 1774,310 1859,270 1868,270 1891,260 1894,264 1896,260 1896,250 1905,243 1902,233 1884,212 1878,209 1842,226 1840,233 1844,238 1843,242 1762,278 1756,276 1742,282 1705,236 1686,206 1676,196 1670,193 1622,132 1622,124 1709,84 1715,84 1736,74 1740,78 1742,75 1742,64 1750,58 1750,52Z"/>
-                <path pathLength="1" d="M1271,1848 1280,1862 1286,1864 1350,1964 1350,1968 1342,1974 1341,1981 1364,2018 1368,2021 1380,2016 1384,2018 1424,2084 1313,2143 1310,2143 1301,2131 1286,2136 1252,2156 1251,2163 1256,2170 1254,2174 1132,2238 1126,2236 1120,2239 1080,2176 1086,2168 1084,2160 1062,2124 1058,2122 1048,2120 983,2012 980,1998 1110,1930 1116,1930 1133,1922 1158,1904Z"/>
-                <path pathLength="1" d="M1590,1684 1599,1696 1606,1700 1672,1797 1673,1800 1664,1806 1664,1814 1686,1848 1691,1852 1704,1847 1708,1848 1750,1912 1644,1968 1632,1956 1619,1962 1584,1980 1584,1986 1588,1996 1588,1998 1468,2062 1462,2059 1454,2063 1414,2002 1416,1996 1414,1986 1393,1953 1378,1945 1312,1842 1309,1828 1436,1762 1442,1764 1469,1750 1472,1744Z"/>
-                <path pathLength="1" d="M1096,1574 1107,1590 1114,1593 1174,1689 1164,1696 1164,1702 1189,1740 1202,1736 1206,1738 1253,1813 1142,1870 1134,1860 1128,1858 1085,1880 1082,1884 1087,1896 1085,1900 966,1961 959,1959 954,1962 908,1887 913,1880 912,1872 888,1836 882,1836 874,1830 816,1732 812,1717 940,1652 946,1653 974,1639 976,1634Z"/>
-                <path pathLength="1" d="M1862,1544 1874,1558 1880,1560 1948,1655 1946,1658 1939,1663 1938,1670 1962,1703 1967,1708 1982,1703 2027,1766 1948,1809 1944,1808 1935,1798 1924,1802 1888,1820 1888,1828 1892,1836 1890,1839 1796,1889 1789,1887 1779,1892 1738,1832 1738,1820 1712,1784 1700,1778 1630,1675 1630,1664 1732,1610 1738,1611 1766,1597 1770,1592Z"/>
-                <path pathLength="1" d="M1410,1418 1420,1434 1427,1436 1490,1528 1488,1531 1480,1536 1480,1542 1502,1576 1506,1580 1520,1574 1522,1576 1572,1650 1468,1704 1459,1694 1452,1692 1410,1714 1408,1718 1414,1730 1412,1732 1295,1792 1290,1790 1281,1794 1234,1720 1237,1712 1214,1675 1199,1666 1136,1569 1134,1556 1258,1493 1264,1494 1291,1481 1296,1474Z"/>
-                <path pathLength="1" d="M2167,1388 2178,1402 2182,1402 2254,1496 2254,1498 2246,1504 2245,1510 2268,1542 2276,1548 2290,1542 2336,1604 2243,1654 2240,1654 2230,1642 2218,1647 2185,1664 2184,1672 2188,1680 2187,1683 2075,1742 2068,1740 2057,1746 2014,1687 2012,1676 1987,1642 1976,1634 1904,1534 1903,1524 2023,1461 2029,1462 2054,1449 2059,1443Z"/>
-                <path pathLength="1" d="M932,1316 942,1331 948,1334 1006,1424 1004,1427 996,1432 996,1436 1016,1470 1022,1474 1032,1470 1036,1472 1079,1540 971,1595 962,1584 956,1584 914,1604 912,1611 916,1620 916,1622 798,1681 793,1678 786,1681 745,1614 750,1608 750,1604 727,1566 720,1566 712,1560 657,1468 655,1461 661,1457 665,1459 666,1452 662,1448 660,1453 654,1456 652,1451 778,1390 784,1390 812,1377 814,1372Z"/>
-                <path pathLength="1" d="M1676,1285 1688,1300 1694,1302 1759,1392 1758,1395 1750,1400 1750,1407 1773,1440 1778,1442 1790,1438 1794,1440 1844,1511 1766,1552 1755,1541 1749,1541 1709,1562 1707,1570 1712,1578 1709,1581 1617,1628 1610,1626 1601,1630 1552,1561 1552,1550 1528,1514 1516,1507 1450,1412 1448,1400 1550,1348 1556,1349 1579,1338 1586,1330Z"/>
-                <path pathLength="1" d="M2464,1236 2475,1250 2480,1249 2554,1340 2545,1348 2544,1355 2569,1387 2576,1391 2590,1386 2637,1445 2550,1492 2547,1492 2536,1481 2492,1504 2491,1510 2496,1518 2494,1522 2386,1578 2379,1576 2366,1582 2321,1524 2319,1516 2291,1480 2284,1476 2208,1378 2208,1368 2211,1364 2325,1306 2331,1307 2356,1294 2360,1288Z"/>
-                <path pathLength="1" d="M1239,1167 1250,1182 1256,1185 1316,1272 1314,1275 1307,1279 1306,1287 1328,1319 1332,1322 1344,1316 1392,1386 1288,1436 1280,1426 1274,1426 1234,1446 1232,1453 1236,1461 1235,1464 1121,1520 1114,1518 1107,1522 1064,1456 1068,1450 1066,1444 1044,1410 1038,1410 1030,1404 970,1308 976,1304 980,1306 982,1300 978,1296 976,1300 970,1302 968,1298 1087,1240 1096,1239 1123,1226 1126,1220Z"/>
-                <path pathLength="1" d="M1976,1136 1988,1151 1994,1154 2060,1240 2052,1248 2051,1254 2076,1288 2081,1290 2094,1284 2148,1356 2056,1404 2054,1404 2046,1394 2039,1393 1998,1414 1998,1422 2002,1428 2001,1432 1890,1488 1884,1486 1873,1491 1823,1422 1822,1412 1800,1382 1786,1370 1719,1278 1716,1266 1834,1206 1840,1207 1866,1194 1870,1188Z"/>
-                <path pathLength="1" d="M776,1070 786,1086 792,1089 846,1173 846,1176 838,1182 837,1186 856,1218 861,1222 872,1218 876,1220 914,1282 808,1334 800,1324 794,1322 754,1342 751,1350 756,1358 754,1360 639,1416 634,1414 628,1416 590,1355 595,1350 593,1341 575,1311 566,1309 558,1301 506,1215 502,1200 624,1140 630,1142 657,1129 661,1123Z"/>
-                <path pathLength="1" d="M1502,1040 1514,1056 1520,1058 1580,1142 1580,1145 1572,1150 1571,1156 1592,1186 1600,1190 1611,1186 1658,1253 1580,1292 1572,1282 1564,1282 1526,1300 1524,1309 1529,1316 1527,1319 1436,1364 1430,1362 1420,1366 1376,1303 1376,1293 1356,1263 1340,1251 1278,1160 1282,1156 1286,1158 1288,1150 1285,1146 1280,1153 1276,1150 1278,1147 1373,1101 1382,1100 1409,1088 1412,1082Z"/>
-                <path pathLength="1" d="M2267,992 2278,1006 2282,1005 2352,1090 2354,1094 2345,1100 2344,1106 2372,1140 2376,1140 2388,1136 2443,1205 2357,1250 2346,1239 2340,1239 2302,1260 2300,1266 2305,1274 2302,1278 2196,1332 2190,1330 2177,1336 2124,1267 2122,1260 2092,1221 2086,1218 2018,1128 2016,1118 2128,1060 2136,1060 2162,1046 2166,1041Z"/>
-                <path pathLength="1" d="M1076,928 1088,944 1095,948 1150,1028 1150,1032 1142,1036 1142,1043 1160,1070 1166,1076 1178,1072 1181,1074 1221,1134 1120,1183 1111,1172 1101,1174 1065,1193 1065,1200 1069,1206 1067,1210 956,1263 949,1261 942,1264 904,1204 906,1198 903,1190 886,1162 879,1160 870,1153 814,1066 812,1054 930,996 937,997 960,986 966,980Z"/>
-                <path pathLength="1" d="M1794,898 1806,913 1813,915 1875,996 1876,1000 1867,1005 1866,1011 1892,1044 1896,1044 1908,1040 1956,1105 1866,1150 1856,1140 1850,1140 1812,1159 1810,1168 1814,1174 1813,1177 1704,1231 1698,1228 1688,1234 1642,1172 1640,1162 1619,1132 1605,1120 1542,1033 1544,1029 1548,1030 1551,1024 1548,1020 1546,1023 1542,1026 1540,1022 1655,964 1661,966 1687,953 1690,948Z"/>
-                <path pathLength="1" d="M626,836 638,852 644,856 696,938 688,943 686,948 702,976 708,983 720,979 724,982 758,1037 655,1086 652,1086 646,1076 640,1076 600,1094 598,1100 602,1109 602,1112 489,1164 484,1162 476,1164 444,1110 448,1104 446,1096 429,1068 421,1066 412,1057 362,975 358,960 478,904 485,905 507,895 514,888Z"/>
-                <path pathLength="1" d="M1334,806 1346,823 1353,826 1410,905 1410,908 1402,912 1401,918 1421,948 1429,952 1440,947 1483,1008 1408,1045 1398,1035 1390,1036 1354,1053 1351,1058 1356,1068 1354,1071 1266,1114 1258,1112 1249,1116 1210,1060 1210,1049 1188,1017 1174,1007 1116,922 1114,910 1212,864 1217,865 1244,852 1246,848Z"/>
-                <path pathLength="1" d="M2080,760 2092,774 2100,776 2164,858 2156,864 2155,870 2178,899 2184,902 2198,898 2247,960 2162,1004 2152,994 2144,994 2108,1012 2106,1020 2112,1027 2110,1030 2006,1082 2000,1080 1986,1086 1938,1024 1936,1016 1907,978 1900,974 1836,888 1839,887 1841,889 1844,884 1842,878 1836,884 1834,879 1942,826 1954,824 1977,812 1980,807Z"/>
-                <path pathLength="1" d="M922,701 934,718 941,721 993,798 994,800 985,806 985,812 1004,841 1011,844 1022,840 1059,896 962,942 952,932 946,932 906,951 906,958 910,965 908,968 799,1019 793,1016 785,1020 752,969 754,958 734,926 726,924 718,915 666,834 662,820 776,768 786,767 806,758 818,748Z"/>
-                <path pathLength="1" d="M1622,671 1634,686 1642,690 1700,766 1699,770 1692,774 1692,780 1712,808 1718,812 1730,808 1776,866 1686,910 1675,900 1666,902 1632,920 1632,926 1636,934 1528,987 1522,984 1512,990 1470,934 1468,922 1448,896 1434,883 1374,800 1372,790 1484,736 1492,736 1517,724 1520,718Z"/>
-                <path pathLength="1" d="M494,628 506,645 512,648 551,710 552,714 544,717 542,722 564,756 575,752 579,754 610,804 509,852 500,841 492,842 456,858 453,861 457,872 456,876 348,926 334,926 304,878 309,871 306,862 291,837 282,834 272,824 236,764 231,746 348,693 358,693 380,682 388,676Z"/>
-                <path pathLength="1" d="M1175,585 1188,602 1194,604 1248,680 1248,683 1240,686 1240,694 1259,721 1266,724 1277,720 1316,776 1242,811 1234,802 1226,800 1188,818 1187,826 1190,835 1102,876 1096,874 1087,878 1050,827 1051,818 1035,794 1016,776 962,697 959,684 1055,640 1060,641 1080,632 1092,622Z"/>
-                <path pathLength="1" d="M1903,539 1915,554 1922,556 1984,634 1975,640 1975,646 1995,672 2002,676 2016,672 2060,730 1978,770 1968,760 1962,760 1924,778 1923,786 1928,792 1926,794 1821,845 1817,842 1804,848 1760,792 1758,784 1735,754 1724,744 1662,664 1661,653 1769,601 1777,601 1796,592 1812,580Z"/>
-                <path pathLength="1" d="M785,498 796,515 803,518 844,580 836,586 836,590 852,618 858,622 870,618 905,670 810,714 800,704 792,704 756,722 754,726 758,738 648,787 644,784 636,788 606,739 608,734 607,728 590,702 583,699 572,689 532,626 530,613 642,562 652,561 675,550 681,544Z"/>
-                <path pathLength="1" d="M1458,456 1472,472 1478,474 1534,550 1525,555 1525,561 1544,587 1550,592 1563,587 1603,640 1516,682 1506,672 1500,672 1463,690 1462,698 1466,704 1464,706 1360,756 1354,753 1344,758 1306,707 1306,698 1278,662 1272,658 1214,580 1212,568 1323,516 1330,517 1355,506 1360,500Z"/>
-                <path pathLength="1" d="M1034,387 1046,404 1052,406 1095,467 1086,472 1086,480 1104,505 1111,508 1122,504 1158,554 1083,588 1075,578 1068,578 1032,596 1031,603 1035,610 1033,612 946,652 940,649 932,652 900,607 900,597 883,572 866,556 823,494 820,483 912,440 920,440 942,431 950,424Z"/>
-                <path pathLength="1" d="M1734,329 1748,344 1754,346 1812,418 1810,422 1804,425 1804,432 1828,461 1842,457 1884,509 1802,548 1792,538 1786,538 1750,555 1748,564 1752,569 1751,572 1651,619 1643,618 1632,622 1592,572 1590,564 1565,532 1556,525 1498,448 1496,438 1603,388 1610,388 1629,380 1640,371Z"/>
-                <path pathLength="1" d="M1312,262 1324,279 1332,282 1374,338 1374,341 1366,346 1366,352 1386,378 1390,381 1404,377 1440,425 1354,465 1344,456 1339,455 1303,472 1300,475 1305,486 1303,488 1202,534 1194,533 1184,537 1151,492 1149,481 1123,448 1116,443 1073,384 1070,371 1180,320 1184,322 1210,311 1214,305Z"/>
-                <path pathLength="1" d="M1584,141 1596,157 1601,157 1647,214 1648,216 1640,222 1640,228 1663,256 1678,252 1715,299 1635,336 1624,327 1617,328 1584,343 1582,350 1586,358 1585,360 1486,405 1478,403 1468,408 1432,363 1430,355 1408,326 1396,316 1350,256 1349,246 1456,197 1463,198 1485,188 1489,182Z"/>
-              </svg>
-            </div>
-          </div>
+          <figure>
+            <picture>
+              <source type="image/avif" sizes="(min-width: 1024px) 50vw, 100vw" srcset="img/home/lemoyne-layout-480.avif 480w, img/home/lemoyne-layout-720.avif 720w, img/home/lemoyne-layout-960.avif 960w, img/home/lemoyne-layout-1280.avif 1280w">
+              <source type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" srcset="img/home/lemoyne-layout-480.webp 480w, img/home/lemoyne-layout-720.webp 720w, img/home/lemoyne-layout-960.webp 960w, img/home/lemoyne-layout-1280.webp 1280w">
+              <img src="img/home/lemoyne-layout-960.webp" alt="FiberSprung's layout drawing for a Light floor at Le Moyne College, showing how every run of the grid is placed." width="960" height="640" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="caption">Le Moyne College. The layout drawing for a Light floor.</figcaption>
+          </figure>
         </div>
       </li>
       <li class="pstep grid">
         <div class="step__body pstep__body">
           <h3 class="step__title"><span class="num" aria-hidden="true">2</span>The grid</h3>
-          <p>Pultruded fiberglass tubes in a basket weave, joined with elastomer fittings and aluminum joint brackets.</p>
+          <p>Pultruded fiberglass tubes in a basket weave, joined with elastomer fittings, aluminum joint brackets and steel fasteners. After you order, the lead time is about 6 weeks, and the fiberglass parts arrive pre-assembled with FiberSprung fittings.</p>
           <dl class="readout">
             <div><dt>Use life</dt><dd>30+ years</dd></div>
             <div><dt>Warranty</dt><dd>20 years</dd></div>
@@ -246,7 +222,6 @@
           <h3 class="step__title"><span class="num" aria-hidden="true">3</span>Plywood support surface</h3>
           <p>Plywood coated with a water-based outdoor sealant and fastened to the grid at the perimeter.</p>
           <dl class="readout">
-            <div><dt>Plywood</dt><dd>3/4 in. or 1 in.</dd></div>
             <div><dt>Warranty</dt><dd>2 years</dd></div>
           </dl>
         </div>
@@ -274,7 +249,7 @@
         <div class="step__body pstep__body">
           <h3 class="step__title"><span class="num" aria-hidden="true">4</span>Performance surface</h3>
           <!-- OPEN: surface order -->
-          <p>Choose the surface for the work: dance marley, engineered hardwood or vinyl click-lock. FiberSprung has its own React Marley and is a dealer for other marley.</p>
+          <p>Choose the surface for the work: dance marley, engineered hardwood or vinyl click-lock. FiberSprung has its own <a href="products.html#react-marley">React Marley</a> and is a dealer for other marley.</p>
           <p class="note">Surface installation is not included in floor pricing.</p>
           <p><a href="products.html#surfaces">See the surfaces</a></p>
         </div>
@@ -321,7 +296,15 @@
       <h2 class="rule-head" id="bmh-h">Bronx Music Hall,<br>layer by layer.</h2>
       <p>A Light floor finished in engineered hardwood.</p>
     </div>
-    <ol class="strip4" start="2">
+    <ol class="strip4 strip5">
+      <li><figure>
+        <picture>
+          <source type="image/avif" sizes="(min-width: 1024px) 20vw, 50vw" srcset="img/technology/bmh-layout-tall-480.avif 480w, img/technology/bmh-layout-tall-720.avif 720w, img/technology/bmh-layout-tall-960.avif 960w">
+          <source type="image/webp" sizes="(min-width: 1024px) 20vw, 50vw" srcset="img/technology/bmh-layout-tall-480.webp 480w, img/technology/bmh-layout-tall-720.webp 720w, img/technology/bmh-layout-tall-960.webp 960w">
+          <img src="img/technology/bmh-layout-tall-720.webp" alt="FiberSprung's layout drawing for the Bronx Music Hall floor, with its parts count." width="960" height="1200" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><span class="num" aria-hidden="true">1</span><span>The layout drawing</span></figcaption>
+      </figure></li>
       <li><figure>
         <picture>
             <source type="image/avif" sizes="(min-width: 1248px) 288px, (min-width: 768px) 25vw, 50vw" srcset="img/technology/bmh-1-480.avif 480w, img/technology/bmh-1-720.avif 720w, img/technology/bmh-1-960.avif 960w">
@@ -352,7 +335,7 @@
             <source type="image/webp" sizes="(min-width: 1248px) 288px, (min-width: 768px) 25vw, 50vw" srcset="img/products/surface-hardwood-480.webp 480w, img/products/surface-hardwood-720.webp 720w, img/products/surface-hardwood-960.webp 960w">
             <img src="img/products/surface-hardwood-720.webp" alt="The finished engineered hardwood floor at Bronx Music Hall." width="960" height="1200" loading="lazy" decoding="async">
           </picture>
-        <figcaption><span class="num" aria-hidden="true">4</span><span>Finished</span></figcaption>
+        <figcaption><span class="num" aria-hidden="true">5</span><span>Finished</span></figcaption>
       </figure></li>
     </ol>
   </div>
@@ -364,7 +347,8 @@
     <div class="payoff__text">
       <h2 class="rule-head" id="sus-h">Built to be<br>taken apart.</h2>
       <p>A FiberSprung floor is never permanently installed in a studio. It is an asset.</p>
-      <p>The surface is removable and the parts are interchangeable, so a floor can be opened, repaired, moved or sold.</p>
+      <p>The surface is removable and the parts are interchangeable, so a floor can be opened, repaired, moved or sold. When life changes, we help customers relocate their floors or give them a new life with someone else.</p>
+      <p>Foam can never be patched to match, because new foam is not the same age as the rest of the floor. Wood takes a lot of time and effort to take apart and rebuild.</p>
       <dl class="ledger">
         <div class="ledger__row">
           <dt>Of materials can be reused after water damage, by cost, not counting marley</dt>
@@ -471,14 +455,12 @@
           <li><a href="mailto:info@fibersprung.com">info@fibersprung.com</a></li>
         </ul>
       </div>
-      <div class="site-footer__col site-footer__patents">
-        <h2 class="site-footer__label">Patents</h2>
+      <div class="site-footer__col site-footer__social">
+        <h2 class="site-footer__label">Follow us</h2>
         <ul>
-          <li>US 10329777</li>
-          <li>US 10731359</li>
-          <li>US 11047138</li>
-          <li>US 11655639</li>
-          <li>EU EP 3966404</li>
+          <li><a href="https://www.facebook.com/fibersprung" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/fibersprung" rel="noopener">Instagram</a></li>
+          <li><a href="https://vimeo.com/fibersprung" rel="noopener">Vimeo</a></li>
         </ul>
       </div>
     </div>

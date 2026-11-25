@@ -24,8 +24,6 @@
       if (!v) { return "Enter an email address we can reply to."; }
       return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? "" : "That email address does not look right. Check it and try again.";
     },
-    space_type: function (v) { return v ? "" : "Choose the kind of space."; },
-    timeline: function (v) { return v ? "" : "Choose when you need it."; },
     size_sq_ft: function (v) { return !v || /^[\d,.\s]+$/.test(v) ? "" : "Enter a number, like 1200."; }
   };
 
