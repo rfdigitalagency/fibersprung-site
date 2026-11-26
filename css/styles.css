@@ -1281,3 +1281,25 @@ figure:has(> figcaption.caption) img { display: block; }
 .tcard:hover .tcard__media img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) { .tcard__media img, .tcard__media picture::after { transition: none; } .tcard:hover .tcard__media img { transform: none; } }
 @media (max-width: 599px) { .tcard__name { padding: var(--s-2) var(--s-3); } }
+
+/* Home, Trusted by (Nov 25): one compact band. Logos run in a slow loop (second copy is aria-hidden); hover pauses; reduced motion shows a static wrapped row. */
+.who { padding-block: var(--s-5); }
+.who__in { display: flex; flex-direction: column; gap: var(--s-3); }
+.who__label { flex: none; font: 600 1.25rem / 1 var(--font-head); text-transform: uppercase; }
+.logorun { display: flex; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.logorun__list { display: flex; flex: none; align-items: center; gap: 44px; margin: 0; padding: 0 44px 0 0; list-style: none; animation: logorun 45s linear infinite; }
+.logorun__list li { flex: none; }
+.logorun__list img { display: block; width: calc(var(--w) * .8px); height: auto; }
+.logorun:hover .logorun__list { animation-play-state: paused; }
+@keyframes logorun { to { transform: translateX(-100%); } }
+@media (min-width: 768px) {
+  .who__in { flex-direction: row; align-items: center; gap: var(--s-6); }
+  .logorun { flex: 1; min-width: 0; }
+  .logorun__list { gap: 56px; padding-right: 56px; }
+  .logorun__list img { width: calc(var(--w) * 1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logorun { -webkit-mask-image: none; mask-image: none; }
+  .logorun__list { flex: 1; flex-wrap: wrap; justify-content: center; gap: var(--s-4) var(--s-6); padding: 0; animation: none; }
+  .logorun__list[aria-hidden] { display: none; }
+}
