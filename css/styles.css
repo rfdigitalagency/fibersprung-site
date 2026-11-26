@@ -1209,3 +1209,50 @@ figure:has(> figcaption.caption) img { display: block; }
 .crew-grid picture { display: block; height: 100%; }
 .crew-grid img { width: 100%; height: 100%; object-fit: cover; }
 .crew-grid > figure:first-child img { object-position: 50% 30%; }
+
+/* About, Built in Rhode Island v2 (Nov 25): US map drawn as the grid, green lines out of Coventry */
+.shop__text, .shipmap { grid-column: 1 / -1; }
+.shop__lede { margin-bottom: var(--s-4); }
+.shipmap { margin-top: var(--s-7); }
+.shipmap__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.sm-gridfill { fill: url(#sm-grid); }
+#sm-grid path { fill: none; stroke: var(--gray-1); stroke-width: 0.9; }
+.sm-coast { fill: none; stroke: var(--gray-2); stroke-width: 1.3; stroke-linejoin: round; }
+.sm-arcs { filter: drop-shadow(0 0 3px rgba(118, 188, 33, .6)); }
+.sm-arc { fill: none; stroke: var(--green); stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.sm-city { fill: var(--white); stroke: var(--black); stroke-width: 2.5; }
+.sm-label { fill: var(--white); font: 500 16px / 1 var(--font-body); paint-order: stroke; stroke: var(--black); stroke-width: 5px; stroke-linejoin: round; }
+.sm-label--ri { font-weight: 600; }
+.sm-mini { fill: var(--white); font: 500 9.5px / 1 var(--font-body); paint-order: stroke; stroke: var(--black); stroke-width: 3px; }
+.sm-mini--strong { font-weight: 700; fill: var(--green); }
+.sm-pin { fill: var(--green); stroke: var(--black); stroke-width: 2; }
+.sm-pulse { fill: none; stroke: var(--green); stroke-width: 2; transform-box: fill-box; transform-origin: center; opacity: 0; }
+.sm-zoom { fill: none; stroke: var(--white); stroke-width: 1.2; }
+.sm-lead { fill: none; stroke: var(--gray-2); stroke-width: 1; stroke-dasharray: 3 3; }
+.sm-box { fill: var(--black); stroke: var(--white); stroke-width: 1.2; }
+.sm-ri { fill: #1a1a1a; stroke: var(--white); stroke-width: 4; stroke-linejoin: round; }
+.shipmap__note { margin-top: var(--s-4); color: var(--fg-2); font-size: var(--fs-label); }
+.shipmap.is-armed:not(.is-in) .sm-arc { stroke-dashoffset: 1; }
+.shipmap.is-armed:not(.is-in) .sm-city:not(.sm-city--still), .shipmap.is-armed:not(.is-in) .sm-label:not(.sm-label--ri) { opacity: 0; }
+.shipmap.is-in .sm-arc { stroke-dashoffset: 0; transition: stroke-dashoffset 1.2s cubic-bezier(.3, .6, .2, 1) calc(var(--i) * 110ms + 200ms); }
+.shipmap.is-in .sm-city, .shipmap.is-in .sm-label { opacity: 1; transition: opacity .35s ease calc(var(--i) * 110ms + 1100ms); }
+@media (prefers-reduced-motion: no-preference) {
+  .sm-pulse { animation: sm-pulse 2.6s ease-out infinite; }
+  @keyframes sm-pulse { 0% { opacity: .9; transform: scale(1); } 80%, 100% { opacity: 0; transform: scale(3); } }
+}
+@media (max-width: 599px) {
+  .sm-label { font-size: 30px; stroke-width: 8px; }
+  .sm-label--wide { display: none; }
+  .sm-arc { stroke-width: 3.5; }
+  .sm-city { r: 7; }
+  .sm-mini { font-size: 0; }
+  .sm-label--ri { font-size: 20px; stroke-width: 6px; }
+  .shipmap { margin-inline: calc(var(--margin) * -1); }
+  .shipmap__note { padding-inline: var(--margin); }
+  .shipmap__svg { width: calc(100% - 12px); margin-inline: auto; }
+  .sm-label--la { transform: translateX(34px); }
+}
+@media (min-width: 1024px) {
+  .shop__text { grid-column: 1 / span 4; align-self: center; }
+  .shipmap { grid-column: 5 / -1; margin-top: 0; }
+}
