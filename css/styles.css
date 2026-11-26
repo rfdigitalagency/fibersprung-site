@@ -1195,3 +1195,17 @@ figure:has(> figcaption.caption) img { display: block; }
 @media (min-width: 768px) { .crew--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .crew--pair + .crew { margin-top: 2px; }
 @media (max-width: 767px) { .crew--pair + .crew { margin-top: var(--s-4); } }
+
+/* About, "On the job" (Nov 25): one composed grid. The crew selfie is the lead, tall on the left; four smaller photos fill a 2 by 2 block beside it. */
+.crew-wrap { margin-top: var(--s-8); }
+.crew-wrap__head { margin-bottom: var(--s-5); font: 700 var(--fs-floor) / 1 var(--font-head); text-transform: uppercase; }
+.crew-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 44vw; gap: 2px; }
+.crew-grid > figure:first-child { grid-column: 1 / -1; grid-row: span 2; }
+@media (min-width: 768px) {
+  .crew-grid { grid-template-columns: 2fr 1fr 1fr; grid-auto-rows: clamp(150px, 19vw, 290px); }
+  .crew-grid > figure:first-child { grid-column: 1; grid-row: 1 / span 2; }
+}
+.crew-grid > figure { height: 100%; grid-template-rows: 100%; align-content: stretch; }
+.crew-grid picture { display: block; height: 100%; }
+.crew-grid img { width: 100%; height: 100%; object-fit: cover; }
+.crew-grid > figure:first-child img { object-position: 50% 30%; }
