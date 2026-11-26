@@ -117,42 +117,62 @@
 <section class="section team on-canvas" id="team" aria-labelledby="team-h">
   <div class="wrap">
     <h2 class="rule-head" id="team-h">The team.</h2>
-    <ul class="team__list">
-      <li class="team__row">
-        <picture class="team__photo">
-          <source type="image/avif" srcset="img/about/team-spencer.avif">
-          <source type="image/webp" srcset="img/about/team-spencer.webp">
-          <img src="img/about/team-spencer.webp" alt="Spencer" width="172" height="172" loading="lazy" decoding="async">
-        </picture>
-        <h3 class="team__name">Spencer</h3><p class="team__what">Inventor, ballet master, artistic director, artist</p></li>
-      <li class="team__row">
-        <picture class="team__photo">
-          <source type="image/avif" srcset="img/about/team-zach.avif">
-          <source type="image/webp" srcset="img/about/team-zach.webp">
-          <img src="img/about/team-zach.webp" alt="Zach" width="172" height="172" loading="lazy" decoding="async">
-        </picture>
-        <h3 class="team__name">Zach</h3><p class="team__what">Serial entrepreneur, marketer, fisherman</p></li>
-      <li class="team__row">
-        <picture class="team__photo">
-          <source type="image/avif" srcset="img/about/team-chase.avif">
-          <source type="image/webp" srcset="img/about/team-chase.webp">
-          <img src="img/about/team-chase.webp" alt="Chase" width="172" height="172" loading="lazy" decoding="async">
-        </picture>
-        <h3 class="team__name">Chase</h3><p class="team__what">Composites expert, carpenter, yacht racer</p></li>
-      <li class="team__row">
-        <picture class="team__photo">
-          <source type="image/avif" srcset="img/about/team-micah.avif">
-          <source type="image/webp" srcset="img/about/team-micah.webp">
-          <img src="img/about/team-micah.webp" alt="Micah" width="172" height="172" loading="lazy" decoding="async">
-        </picture>
-        <h3 class="team__name">Micah</h3><p class="team__what">Design engineer, yacht racer, palm tree climber</p></li>
-      <li class="team__row">
-        <picture class="team__photo">
-          <source type="image/avif" srcset="img/about/team-andrea.avif">
-          <source type="image/webp" srcset="img/about/team-andrea.webp">
-          <img src="img/about/team-andrea.webp" alt="Andrea" width="172" height="172" loading="lazy" decoding="async">
-        </picture>
-        <h3 class="team__name">Andrea</h3><p class="team__what">Administrator, teacher, choreographer, jewelry designer</p></li>
+    <ul class="tcards">
+      <li class="tcard">
+        <div class="tcard__media">
+          <picture>
+            <source type="image/avif" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-spencer-360.avif 360w, img/about/team-card-spencer-407.avif 407w">
+            <source type="image/webp" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-spencer-360.webp 360w, img/about/team-card-spencer-407.webp 407w">
+            <img src="img/about/team-card-spencer-360.webp" alt="Spencer smiling in a dance studio, wearing a knit cap." width="407" height="509" loading="lazy" decoding="async">
+          </picture>
+          <h3 class="tcard__name">Spencer</h3>
+        </div>
+        <p class="tcard__what">Inventor, ballet master, artistic director, artist</p>
+      </li>
+      <li class="tcard">
+        <div class="tcard__media">
+          <picture>
+            <source type="image/avif" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-micah-360.avif 360w, img/about/team-card-micah-480.avif 480w, img/about/team-card-micah-720.avif 720w">
+            <source type="image/webp" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-micah-360.webp 360w, img/about/team-card-micah-480.webp 480w, img/about/team-card-micah-720.webp 720w">
+            <img src="img/about/team-card-micah-360.webp" alt="Micah standing in front of a rock pillar on a cliff." width="720" height="900" loading="lazy" decoding="async">
+          </picture>
+          <h3 class="tcard__name">Micah</h3>
+        </div>
+        <p class="tcard__what">Design engineer, yacht racer, palm tree climber</p>
+      </li>
+      <li class="tcard">
+        <div class="tcard__media">
+          <picture>
+            <source type="image/avif" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-zach-360.avif 360w, img/about/team-card-zach-440.avif 440w">
+            <source type="image/webp" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-zach-360.webp 360w, img/about/team-card-zach-440.webp 440w">
+            <img src="img/about/team-card-zach-360.webp" alt="Zach laughing on a bowling lane." width="440" height="550" loading="lazy" decoding="async">
+          </picture>
+          <h3 class="tcard__name">Zach</h3>
+        </div>
+        <p class="tcard__what">Serial entrepreneur, marketer, fisherman</p>
+      </li>
+      <li class="tcard">
+        <div class="tcard__media">
+          <picture>
+            <source type="image/avif" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-chase-360.avif 360w, img/about/team-card-chase-480.avif 480w, img/about/team-card-chase-720.avif 720w">
+            <source type="image/webp" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-chase-360.webp 360w, img/about/team-card-chase-480.webp 480w, img/about/team-card-chase-720.webp 720w">
+            <img src="img/about/team-card-chase-360.webp" alt="Chase at the helm of a racing yacht." width="720" height="900" loading="lazy" decoding="async">
+          </picture>
+          <h3 class="tcard__name">Chase</h3>
+        </div>
+        <p class="tcard__what">Composites expert, carpenter, yacht racer</p>
+      </li>
+      <li class="tcard">
+        <div class="tcard__media">
+          <picture>
+            <source type="image/avif" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-andrea-360.avif 360w, img/about/team-card-andrea-480.avif 480w, img/about/team-card-andrea-512.avif 512w">
+            <source type="image/webp" sizes="(min-width: 1024px) 20vw, (min-width: 600px) 30vw, 48vw" srcset="img/about/team-card-andrea-360.webp 360w, img/about/team-card-andrea-480.webp 480w, img/about/team-card-andrea-512.webp 512w">
+            <img src="img/about/team-card-andrea-360.webp" alt="Andrea speaking into a microphone on stage." width="512" height="640" loading="lazy" decoding="async">
+          </picture>
+          <h3 class="tcard__name">Andrea</h3>
+        </div>
+        <p class="tcard__what">Administrator, teacher, choreographer, jewelry designer</p>
+      </li>
     </ul>
     <div class="crew-wrap">
       <h3 class="crew-wrap__head">On the job.</h3>

@@ -1266,3 +1266,18 @@ figure:has(> figcaption.caption) img { display: block; }
 .lines__social { gap: 0 var(--s-5); }
 .lines__social-label { flex-basis: 100%; }
 .lines__social a { min-height: 40px; }
+
+/* About, team cards (Nov 25): portraits in a black-to-green duotone (grayscale photo under a green multiply layer); hover or focus shows the plain photo. */
+.tcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-3); margin: 0; padding: 0; list-style: none; }
+@media (min-width: 600px) { .tcards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .tcards { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-4); } }
+.tcard__media { position: relative; overflow: hidden; background: var(--black); }
+.tcard__media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; filter: contrast(1.08); transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.tcard__media picture { display: block; position: relative; overflow: hidden; }
+.tcard__media picture::after { content: none; }
+.tcard__name { position: relative; z-index: 1; margin: 0; padding: var(--s-3) var(--s-4) var(--s-3); border-top: 4px solid var(--green); background: var(--black); color: var(--white); font: 700 clamp(1.35rem, 2vw, 1.9rem) / 1 var(--font-head); letter-spacing: .01em; text-transform: uppercase; }
+.tcard__what { max-width: none; margin-top: var(--s-3); font-size: var(--fs-label); font-weight: 500; line-height: 1.4; }
+.tcard:hover .tcard__media picture::after, .tcard:focus-within .tcard__media picture::after { opacity: 0; }
+.tcard:hover .tcard__media img { transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce) { .tcard__media img, .tcard__media picture::after { transition: none; } .tcard:hover .tcard__media img { transform: none; } }
+@media (max-width: 599px) { .tcard__name { padding: var(--s-2) var(--s-3); } }
