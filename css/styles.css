@@ -1256,3 +1256,13 @@ figure:has(> figcaption.caption) img { display: block; }
   .shop__text { grid-column: 1 / span 4; align-self: center; }
   .shipmap { grid-column: 5 / -1; margin-top: 0; }
 }
+
+/* Social links with platform icons (Nov 25) */
+.soc__ico { width: 18px; height: 18px; flex: none; fill: currentColor; }
+.site-footer__social a, .lines__social a { display: inline-flex; align-items: center; gap: var(--s-2); }
+.site-footer__social a:hover .soc__ico, .lines__social a:hover .soc__ico { fill: var(--green); }
+.lines__social { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-5); }
+.lines__social a { min-height: 44px; }
+.lines__social { gap: 0 var(--s-5); }
+.lines__social-label { flex-basis: 100%; }
+.lines__social a { min-height: 40px; }
